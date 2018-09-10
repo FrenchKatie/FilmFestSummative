@@ -1,0 +1,62 @@
+body{
+  font-family: "Open Sans";
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+.headerText{
+  font-family: "Oswald";
+  font-size: 2em;
+  padding: 1em 0em;
+}
+
+.letter{
+  font-family: "Oswald";
+  color: #353b48;
+  font-size: 1.8em;
+  padding: 1em 0em;
+}
+span{
+  height: 2em;
+  width: 100px;
+  background-color: black;
+}
+.active{
+  border-bottom: 8px #0797B4 solid;
+}
+
+#container{
+  height: 100vh;
+}
+
+#map{
+  height: 100%;
+  background-color: #ced6e0;
+  width: 100%;
+}
+
+.filmListItem{
+  margin: 1em 0em;
+}
+
+.filmListItem-img{
+  background-image: url("../img/americananimals.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 10em;
+  width: 10em;
+  background-color: pink;
+}
+.filmListItem-category{
+  font-size: 0.7em;
+}
+.filmListItem-title{
+  font-size: 1.2em;
+  font-family: "Oswald"
+}
+.filmListItem-director{
+font-size: 1em;
+}
+.filmListItem-description{
+font-size: 0.7em;
+}
