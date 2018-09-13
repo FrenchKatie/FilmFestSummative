@@ -39,10 +39,32 @@ var server = http.createServer(function(request, response){
           response.end(contents);
         }
       });
+    } else if(request.url === '/films' || request.url === '/films.html'){
+
+      // return html file
+      fs.readFile('films.html', 'UTF-8', function(error, contents){
+        if (error){
+          console.log(error);
+        } else{
+          response.writeHead(200, {'content-Type':'text/html'});
+          response.end(contents);
+        }
+      });
+
+    } else if(request.url === '/filmData'){
+
+      // return data
+      response.writeHead(200, {'Content-Type': 'text/json'});
+      response.end(JSON.stringify(data));
+
+    } else if(request.url.match(/.js$/)){
+        var jsPath = path.join(__dirname, request.url);
+        var fileStream = fs.createReadStream(jsPath, 'UTF-8');
+        response.writeHead(200, {'Content-Type': 'text/javascript'});
+        fileStream.pipe(response);
     }
 
   }
-
 
 });
 server.listen(3000);

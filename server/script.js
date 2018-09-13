@@ -1,3 +1,5 @@
+console.log('JS loaded');
+
 var data;
 // ----------DOM QUERIES----------
 
@@ -13,7 +15,7 @@ var filmDirector = document.getElementsByClassName('film-director');
 
 $.ajax({
     type: 'GET',
-    url: '/data/film-data.json',
+    url: 'http://192.168.33.10:3000/filmData',
     dataType: 'json',
     success:function(jsonData){
         data = jsonData;
@@ -21,7 +23,7 @@ $.ajax({
         createContainers();
     },
     error:function(error){
-        console.log('ERROR');
+        console.log('FAILED TO REQUEST /FILMS');
         console.log(error);
     }
 });
@@ -40,5 +42,5 @@ function initData(i){
     filmImg[0].setAttribute('src', data[i].images[0]);
     filmTitle[0].innerHTML = data[i].title;
     filmDirector[0].innerHTML = data[i].director[0];
-    
+
 }
