@@ -7,11 +7,9 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      currentPage: 'page1'
+      currentPage: 'allCinemas'
     }
-
-    this.changeClass = this.changePage.bind(this);
-
+    this.changePage = this.changePage.bind(this);
   }
 
   render() {
@@ -21,8 +19,10 @@ class App extends Component {
 
     if(currentPage === 'allCinemas'){
           page = <AllCinemas/>
-    } else if(currentPage === 'allFilms'){
+    }else if(currentPage === 'allFilms'){
         page = <AllFilms/>
+    } else if (currentPage === 'singleFilm') {
+        page = <SingleFilm/>
     }
 
     return (
@@ -42,9 +42,7 @@ class App extends Component {
     this.setState({
       currentPage: pageNumber
     });
-
   }
-
 }
 
 class AllCinemas extends Component {
@@ -57,13 +55,25 @@ class AllCinemas extends Component {
     }
 }
 
+
+class SingleFilm extends Component {
+  render(){
+    return (
+      <div>
+        <h3>Testing - single film page</h3>
+      </div>
+    )
+  }
+}
+
+
 class AllFilms extends Component {
+
     render() {
       return (
         <div id="filmList">
           <h4 className="letter text-center">A</h4>
-
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film1">
                 <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
@@ -76,7 +86,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film2">
                 <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
@@ -89,7 +99,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film3">
                 <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
@@ -104,12 +114,8 @@ class AllFilms extends Component {
           </div>
 
 
-
-
-
-
           <h4 className="letter text-center">B</h4>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film4">
                 <h6 className="filmListItem-category text-center position-relative cat-bigNights">Big Nights</h6>
@@ -122,7 +128,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film5">
                 <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
@@ -135,7 +141,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film3">
                 <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
@@ -149,7 +155,7 @@ class AllFilms extends Component {
             </div>
           </div>
           <h4 className="letter text-center">C</h4>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film1">
                 <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
@@ -162,7 +168,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film2">
                 <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
@@ -175,7 +181,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film3">
                 <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
@@ -189,7 +195,7 @@ class AllFilms extends Component {
             </div>
           </div>
           <h4 className="letter text-center">D</h4>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film1">
                 <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
@@ -202,7 +208,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film2">
                 <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
@@ -215,7 +221,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film3">
                 <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
@@ -229,7 +235,7 @@ class AllFilms extends Component {
             </div>
           </div>
           <h4 className="letter text-center">E</h4>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film1">
                 <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
@@ -242,7 +248,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film2">
                 <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
@@ -255,7 +261,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film3">
                 <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
@@ -269,7 +275,7 @@ class AllFilms extends Component {
             </div>
           </div>
           <h4 className="letter text-center">F</h4>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film1">
                 <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
@@ -282,7 +288,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film2">
                 <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
@@ -295,7 +301,7 @@ class AllFilms extends Component {
 
             </div>
           </div>
-          <div className="filmListItem row">
+          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
             <div className="col">
               <div className="filmListItem-img" id="film3">
                 <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
@@ -312,6 +318,12 @@ class AllFilms extends Component {
 
       );
     }
+
+    changePage(){
+      alert('test');
+    }
 }
+
+
 
 export default App;
