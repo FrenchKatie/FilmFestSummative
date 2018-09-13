@@ -25,20 +25,24 @@ const qs = require('querystring');
 // });
 
 var server = http.createServer(function(request, response){
-    console.log(`${request.method} request for ${request.url}`);
+  console.log(`${request.method} request for ${request.url}`);
 
-    if(request.method === "GET"){
-        if(request.url === "/"){
-            fs.readFile('server_test.html', 'UTF-8', function(error, contents){
-                if(error){
-                    console.log("error, something went wrong");
-                } else {
-                    response.writeHead(200, {'Content-Type':'text/html'});
-                    response.end(contents);
-                }
-            });
+  if(request.method === 'GET'){
+    // var page;
+    if(request.url === '/server_test'){
+      // response.end('Hello world');
+      fs.readFile('server_test.html', 'UTF-8', function(error, contents){
+        if (error){
+          console.log(error);
+        } else{
+          response.writeHead(200, {'content-Type':'text/html'});
+          response.end(contents);
         }
+      });
     }
+
+  }
+
 
 });
 server.listen(3000);
