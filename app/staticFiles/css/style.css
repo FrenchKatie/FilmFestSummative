@@ -4,6 +4,49 @@ body{
   padding: 0px;
   margin: 0px;
 }
+<<<<<<< HEAD
+=======
+.cat-animationNow{
+  background-color: #822761;
+}
+.cat-aotearoa{
+  background-color: #0094B5;
+}
+.cat-bigNights{
+  background-color: #E52B13;
+}
+.cat-forAllAges{
+  background-color: #ECA043;
+}
+.cat-framingReality{
+  background-color: #EA590B;
+}
+.cat-fresh{
+  background-color: #FECF44;
+}
+.cat-incrediblyStrange{
+  background-color: #D1C000;
+}
+.cat-liveEvents{
+  background-color: #010173;
+}
+.cat-musicAndDance{
+  background-color: #D994BD;
+}
+.cat-newsAndFakeNews{
+  background-color: #6591CB;
+}
+.cat-portraitOfAnArtist{
+  background-color: #449E89;
+}
+.cat-world{
+  background-color: #49B382;
+}
+
+header{
+  border-bottom: 1px #EBEBEB solid;
+}
+>>>>>>> master
 .headerText{
   font-family: "Oswald";
   font-size: 2em;
@@ -12,6 +55,7 @@ body{
 
 .letter{
   font-family: "Oswald";
+<<<<<<< HEAD
   color: #353b48;
   font-size: 1.8em;
   padding: 1em 0em;
@@ -20,6 +64,15 @@ span{
   height: 2em;
   width: 100px;
   background-color: black;
+=======
+  color: #757575;
+  font-size: 1.8em;
+  padding: 1em 0em 0.5em 0em;
+  width: 25%;
+  border-bottom: 5px #757575 solid;
+  margin: auto;
+  margin-bottom: 2em;
+>>>>>>> master
 }
 .active{
   border-bottom: 8px #0797B4 solid;
@@ -35,28 +88,84 @@ span{
   width: 100%;
 }
 
+<<<<<<< HEAD
 .filmListItem{
   margin: 1em 0em;
 }
 
 .filmListItem-img{
   background-image: url("../img/americananimals.jpg");
+=======
+#film1{
+  background-image: url("../img/americananimals.jpg");
+
+}
+#film2{
+  background-image: url("../img/andbreathenormally.jpg");
+}
+#film3{
+  background-image: url("../img/ashispurestwhite.jpg");
+}
+#film4{
+  background-image: url("../img/birdsofpassage.jpg");
+}
+#film5{
+  background-image: url("../img/border.jpg");
+}
+.film-image{
+  background-image: url("../img/bluemymind.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 15em;
+  width: 100%;
+}
+
+
+.filmListItem{
+  margin: 1em 0em;
+
+}
+
+.filmListItem-img{
+>>>>>>> master
   background-size: cover;
   background-position: center;
   height: 10em;
   width: 10em;
+<<<<<<< HEAD
   background-color: pink;
 }
 .filmListItem-category{
   font-size: 0.7em;
+=======
+}
+
+.filmListItem-category{
+  font-size: 0.8em;
+  color: white;
+  padding: 0.4em 0em 0.2em 0em;
+  bottom: 0px;
+>>>>>>> master
 }
 .filmListItem-title{
   font-size: 1.2em;
   font-family: "Oswald"
 }
 .filmListItem-director{
+<<<<<<< HEAD
 font-size: 1em;
 }
 .filmListItem-description{
 font-size: 0.7em;
+=======
+  font-size: 1em;
+}
+.filmListItem-description{
+  font-size: 0.7em;
+  max-height: 8.9em;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+  overflow: hidden;
+
+>>>>>>> master
 }
