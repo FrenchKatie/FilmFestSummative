@@ -1,17 +1,43 @@
 import React, { Component } from 'react';
 import './index.css';
+import './js/script.js';
 import SimpleMap from './map';
 
 class App extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
+      error: null,
+      isLoaded: false,
+      items: [],
       currentPage: 'page1'
     }
 
     this.changeClass = this.changePage.bind(this);
 
+  }
+
+  componentDidMount() {
+    fetch("http://192.168.33.10:5000")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
   }
 
   render() {
@@ -25,17 +51,24 @@ class App extends Component {
         page = <AllFilms/>
     }
 
-    return (
-      <div className="App">
-        <header>
-          <div className="row text-center">
-            <div className="inactive col headerText text-uppercase" onClick={this.changePage.bind(this, 'allCinemas')}>Cinemas</div>
-            <div className="active col headerText text-uppercase" onClick={this.changePage.bind(this, 'allFilms')}>Films</div>
-          </div>
-        </header>
-          {page}
-      </div>
-    );
+    const { error, isLoaded, items } = this.state;
+
+    if (error){
+      return <div>Error: {error.message}</div>;
+    } else {
+      return (
+        <div className="App">
+          <header>
+            <div className="row text-center">
+              <div className="inactive col headerText text-uppercase" onClick={this.changePage.bind(this, 'allCinemas')}>Cinemas</div>
+              <div className="active col headerText text-uppercase" onClick={this.changePage.bind(this, 'allFilms')}>Films</div>
+            </div>
+          </header>
+            {page}
+        </div>
+      );
+    }
+
   }
 
   changePage(pageNumber){
@@ -61,6 +94,8 @@ class AllFilms extends Component {
     render() {
       return (
         <div id="filmList">
+        <div id="anchor"></div>
+        <hr />
           <h4 className="letter text-center">A</h4>
 
           <div className="filmListItem row">
