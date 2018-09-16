@@ -10,6 +10,7 @@ class App extends Component {
       currentPage: 'allCinemas'
     }
     this.changePage = this.changePage.bind(this);
+    this.goToSignle = this.goToSignle.bind(this);
   }
 
   render() {
@@ -20,9 +21,11 @@ class App extends Component {
     if(currentPage === 'allCinemas'){
           page = <AllCinemas/>
     }else if(currentPage === 'allFilms'){
-        page = <AllFilms/>
+        page = <AllFilms
+                  handleChange={this.goToSignle}
+                />
     } else if (currentPage === 'singleFilm') {
-        page = <SingleFilm/>
+        page = <SingleFilm />
     }
 
     return (
@@ -43,6 +46,12 @@ class App extends Component {
       currentPage: pageNumber
     });
   }
+
+  goToSignle(){
+    this.setState({
+      currentPage: 'singleFilm'
+    })
+  }
 }
 
 class AllCinemas extends Component {
@@ -59,8 +68,70 @@ class AllCinemas extends Component {
 class SingleFilm extends Component {
   render(){
     return (
-      <div>
-        <h3>Testing - single film page</h3>
+      <div id="film">
+        <div className="film-image">
+
+        </div>
+        <div className="film-blurb text-center">
+          <p>A mysterious high-school girl dives headfirst into the vices of teenage life, while undergoing a radical and uncontrollable transformation of her own, in Lisa Brühlmann’s formidable debut feature.</p>
+        </div>
+        <h2 className="film-title text-uppercase text-center">Blue My Mind</h2>
+        <h5 className="film-director text-center text-uppercase">Directed by <span className="font-weight-bold">Lisa Bruhlmann</span></h5>
+        <div className="text-center">
+          <button type="button" name="button" className="btnFill text-uppercase">Watch Trailer</button>
+          <button type="button" name="button" className="btnOutline text-uppercase">Read More Info</button>
+        </div>
+        <div className="filmScreenings">
+          <h3 className="text-uppercase text-center screeningsHeader">Screenings</h3>
+          <div className="screening-dates row">
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Sat</p>
+              <p className="date-number">18</p>
+            </div>
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Sun</p>
+              <p className="date-number">19</p>
+            </div>
+            <div className="date-active col text-center text-uppercase">
+              <p className="date-day">Mon</p>
+              <p className="date-number">20</p>
+            </div>
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Tue</p>
+              <p className="date-number">21</p>
+            </div>
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Wed</p>
+              <p className="date-number">22</p>
+            </div>
+          </div>
+          <div className="screening-timetable">
+              <div className="row film-screeningInfo">
+                <div className="film-time col">
+                  <h6 className="text-uppercase font-weight-bold">11.00 am</h6>
+                </div>
+                <div className="film-cinema col">
+                  <h6 className="text-uppercase text-right">Lighthouse</h6>
+                </div>
+              </div>
+              <div className="row film-screeningInfo">
+                <div className="film-time col">
+                  <h6 className="text-uppercase font-weight-bold">11.45 am</h6>
+                </div>
+                <div className="film-cinema col">
+                  <h6 className="text-uppercase text-right">Penthouse</h6>
+                </div>
+              </div>
+              <div className="row film-screeningInfo">
+                <div className="film-time col">
+                  <h6 className="text-uppercase font-weight-bold">1.30 am</h6>
+                </div>
+                <div className="film-cinema col">
+                  <h6 className="text-uppercase text-right">Embassy</h6>
+                </div>
+              </div>
+          </div>
+        </div>
       </div>
     )
   }
@@ -68,8 +139,29 @@ class SingleFilm extends Component {
 
 
 class AllFilms extends Component {
+    constructor(){
+        super();
+        this.state = {
+          currentPage: 'allFilms'
+        }
+        this.changePage = this.changePage.bind(this);
+      }
+
 
     render() {
+
+      var currentPage = this.state.currentPage;
+      let page;
+
+      if(currentPage === 'allCinemas'){
+            page = <AllCinemas/>
+      }else if(currentPage === 'allFilms'){
+          page = <AllFilms/>
+      } else if (currentPage === 'singleFilm') {
+          page = <SingleFilm/>
+      }
+
+
       return (
         <div id="filmList">
           <h4 className="letter text-center">A</h4>
@@ -319,8 +411,9 @@ class AllFilms extends Component {
       );
     }
 
-    changePage(){
-      alert('test');
+    changePage(pageNumber){
+      console.log('test');
+      this.props.handleChange(pageNumber);
     }
 }
 
