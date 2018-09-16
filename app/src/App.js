@@ -7,7 +7,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      currentPage: 'page1'
+      currentPage: 'allCinemas'
     }
 
     this.changePage = this.changePage.bind(this);
