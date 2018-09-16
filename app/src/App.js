@@ -9,14 +9,10 @@ class App extends Component {
     this.state = {
       currentPage: 'allCinemas'
     }
-<<<<<<< HEAD
+
     this.changePage = this.changePage.bind(this);
     this.goToSignle = this.goToSignle.bind(this);
-=======
 
-    this.changePage = this.changePage.bind(this);
-
->>>>>>> 64626a515d2c3205d48419ac1127e4b9be9a4b32
   }
 
   render() {
@@ -146,282 +142,11 @@ class SingleFilm extends Component {
 
 
 class AllFilms extends Component {
-<<<<<<< HEAD
-    constructor(){
-        super();
-        this.state = {
-          currentPage: 'allFilms'
-        }
-        this.changePage = this.changePage.bind(this);
-      }
-
-
-    render() {
-
-      var currentPage = this.state.currentPage;
-      let page;
-
-      if(currentPage === 'allCinemas'){
-            page = <AllCinemas/>
-      }else if(currentPage === 'allFilms'){
-          page = <AllFilms/>
-      } else if (currentPage === 'singleFilm') {
-          page = <SingleFilm/>
-      }
-
-
-      return (
-        <div id="filmList">
-          <h4 className="letter text-center">A</h4>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film1">
-                <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">American Animals</h5>
-              <h6 className="filmListItem-director">Bart Layton</h6>
-              <p className="filmListItem-description">Rising stars Barry Keoghan (The Killing of a Sacred Deer) and Evan Peters (American Horror Story) lead this enthralling true-crime thriller that is as thematically probing as it is straight-up propulsive.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film2">
-                <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">And Breathe Normally</h5>
-              <h6 className="filmListItem-director">Ísold Uggadóttir</h6>
-              <p className="filmListItem-description">A single mother turned border guard and a refugee from Guinea-Bissau form an unlikely bond in this intimate Icelandic drama about two people literally and figuratively trapped on the edge of the world.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film3">
-                <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">Ash Is Purest White</h5>
-              <h6 className="filmListItem-director">Jia Zhang-ke</h6>
-              <p className="filmListItem-description">The transfixing Zhao Tao plays a tough, resilient woman in love with a small-time hoodlum in Jia Zhang-ke’s epic gangland romance, set against China’s relentless modernisation in the 21st century.</p>
-
-            </div>
-          </div>
-
-
-          <h4 className="letter text-center">B</h4>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film4">
-                <h6 className="filmListItem-category text-center position-relative cat-bigNights">Big Nights</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">Birds of Passage</h5>
-              <h6 className="filmListItem-director">Cristina Gallego, Ciro Guerra</h6>
-              <p className="filmListItem-description">The ancient traditions of Colombia’s indigenous Wayuu are shaped by an ambitious matriarch to stake a place for her clan in the burgeoning drug economy of the 1970s. This spectacularly original film opens NZIFF18.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film5">
-                <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">Border</h5>
-              <h6 className="filmListItem-director">Ali Abbasi</h6>
-              <p className="filmListItem-description">An ingenious and twisted blend of crime drama and supernatural romance, this thrillingly unpredictable Swedish film from the writer of Let the Right One In delivers a fresh spin on Nordic mythology.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film3">
-                <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">Ash Is Purest White</h5>
-              <h6 className="filmListItem-director">Jia Zhang-ke</h6>
-              <p className="filmListItem-description">The transfixing Zhao Tao plays a tough, resilient woman in love with a small-time hoodlum in Jia Zhang-ke’s epic gangland romance, set against China’s relentless modernisation in the 21st century.</p>
-
-            </div>
-          </div>
-          <h4 className="letter text-center">C</h4>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film1">
-                <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">American Animals</h5>
-              <h6 className="filmListItem-director">Bart Layton</h6>
-              <p className="filmListItem-description">Rising stars Barry Keoghan (The Killing of a Sacred Deer) and Evan Peters (American Horror Story) lead this enthralling true-crime thriller that is as thematically probing as it is straight-up propulsive.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film2">
-                <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">And Breathe Normally</h5>
-              <h6 className="filmListItem-director">Ísold Uggadóttir</h6>
-              <p className="filmListItem-description">A single mother turned border guard and a refugee from Guinea-Bissau form an unlikely bond in this intimate Icelandic drama about two people literally and figuratively trapped on the edge of the world.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film3">
-                <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">Ash Is Purest White</h5>
-              <h6 className="filmListItem-director">Jia Zhang-ke</h6>
-              <p className="filmListItem-description">The transfixing Zhao Tao plays a tough, resilient woman in love with a small-time hoodlum in Jia Zhang-ke’s epic gangland romance, set against China’s relentless modernisation in the 21st century.</p>
-
-            </div>
-          </div>
-          <h4 className="letter text-center">D</h4>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film1">
-                <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">American Animals</h5>
-              <h6 className="filmListItem-director">Bart Layton</h6>
-              <p className="filmListItem-description">Rising stars Barry Keoghan (The Killing of a Sacred Deer) and Evan Peters (American Horror Story) lead this enthralling true-crime thriller that is as thematically probing as it is straight-up propulsive.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film2">
-                <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">And Breathe Normally</h5>
-              <h6 className="filmListItem-director">Ísold Uggadóttir</h6>
-              <p className="filmListItem-description">A single mother turned border guard and a refugee from Guinea-Bissau form an unlikely bond in this intimate Icelandic drama about two people literally and figuratively trapped on the edge of the world.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film3">
-                <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">Ash Is Purest White</h5>
-              <h6 className="filmListItem-director">Jia Zhang-ke</h6>
-              <p className="filmListItem-description">The transfixing Zhao Tao plays a tough, resilient woman in love with a small-time hoodlum in Jia Zhang-ke’s epic gangland romance, set against China’s relentless modernisation in the 21st century.</p>
-
-            </div>
-          </div>
-          <h4 className="letter text-center">E</h4>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film1">
-                <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">American Animals</h5>
-              <h6 className="filmListItem-director">Bart Layton</h6>
-              <p className="filmListItem-description">Rising stars Barry Keoghan (The Killing of a Sacred Deer) and Evan Peters (American Horror Story) lead this enthralling true-crime thriller that is as thematically probing as it is straight-up propulsive.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film2">
-                <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">And Breathe Normally</h5>
-              <h6 className="filmListItem-director">Ísold Uggadóttir</h6>
-              <p className="filmListItem-description">A single mother turned border guard and a refugee from Guinea-Bissau form an unlikely bond in this intimate Icelandic drama about two people literally and figuratively trapped on the edge of the world.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film3">
-                <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">Ash Is Purest White</h5>
-              <h6 className="filmListItem-director">Jia Zhang-ke</h6>
-              <p className="filmListItem-description">The transfixing Zhao Tao plays a tough, resilient woman in love with a small-time hoodlum in Jia Zhang-ke’s epic gangland romance, set against China’s relentless modernisation in the 21st century.</p>
-
-            </div>
-          </div>
-          <h4 className="letter text-center">F</h4>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film1">
-                <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">American Animals</h5>
-              <h6 className="filmListItem-director">Bart Layton</h6>
-              <p className="filmListItem-description">Rising stars Barry Keoghan (The Killing of a Sacred Deer) and Evan Peters (American Horror Story) lead this enthralling true-crime thriller that is as thematically probing as it is straight-up propulsive.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film2">
-                <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">And Breathe Normally</h5>
-              <h6 className="filmListItem-director">Ísold Uggadóttir</h6>
-              <p className="filmListItem-description">A single mother turned border guard and a refugee from Guinea-Bissau form an unlikely bond in this intimate Icelandic drama about two people literally and figuratively trapped on the edge of the world.</p>
-
-            </div>
-          </div>
-          <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
-            <div className="col">
-              <div className="filmListItem-img" id="film3">
-                <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-              </div>
-            </div>
-            <div className="col">
-              <h5 className="filmListItem-title">Ash Is Purest White</h5>
-              <h6 className="filmListItem-director">Jia Zhang-ke</h6>
-              <p className="filmListItem-description">The transfixing Zhao Tao plays a tough, resilient woman in love with a small-time hoodlum in Jia Zhang-ke’s epic gangland romance, set against China’s relentless modernisation in the 21st century.</p>
-
-            </div>
-          </div>
-        </div>
-
-      );
-=======
 
   constructor(props){
     super(props);
     this.state = {
+      currentPage: 'allFilms',
       error: null,
       isLoaded: false,
       items: []
@@ -457,7 +182,7 @@ class AllFilms extends Component {
           <div id="filmList">
             {items.map(item => (
               <div key={item.title}>
-              <div className="filmListItem row">
+              <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
                 <div className="col">
                   <div className="filmListItem-img" id={item.id}>
                     <h6 className="filmListItem-category text-center position-relative cat-fresh">{item.section}</h6>
@@ -475,7 +200,6 @@ class AllFilms extends Component {
           </div>
         );
       }
->>>>>>> 64626a515d2c3205d48419ac1127e4b9be9a4b32
     }
 
     changePage(pageNumber){
