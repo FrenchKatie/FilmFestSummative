@@ -42,6 +42,7 @@
 //
 // console.log('Server is running on port 5000');
 
+// react-node project
 
 const express = require('express');
 const data = require('./data/film-data.json');
@@ -56,7 +57,7 @@ app.use(function(req, res, next){
     next();
 });
 
-app.get('/', function(req,res){
+app.get('/films', function(req,res){
     res.json(data);
 });
 
