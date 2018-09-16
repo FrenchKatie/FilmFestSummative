@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
-import './js/script.js';
-import SimpleMap from './map';
+import GoogleApiWrapper from './map';
 
 class App extends Component {
 
@@ -11,7 +10,7 @@ class App extends Component {
       currentPage: 'page1'
     }
 
-    this.changeClass = this.changePage.bind(this);
+    this.changePage = this.changePage.bind(this);
 
   }
 
@@ -53,9 +52,7 @@ class AllCinemas extends Component {
     render() {
 
       return (
-        <div id="map">
-          <SimpleMap />
-        </div>
+        <GoogleApiWrapper />
       );
     }
 }
