@@ -184,7 +184,7 @@ class AllFilms extends Component {
               <div key={item.title}>
               <div className="filmListItem row" onClick={this.changePage.bind(this, 'singleFilm')}>
                 <div className="col">
-                  <div className="filmListItem-img" id={item.id}>
+                  <div className="filmListItem-img" id={item.id} style={{backgroundImage: `url(${item.images[0]})`}}>
                     <h6 className="filmListItem-category text-center position-relative cat-fresh">{item.section}</h6>
                   </div>
                 </div>
