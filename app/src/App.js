@@ -11,7 +11,7 @@ class App extends Component {
     }
 
     this.changePage = this.changePage.bind(this);
-    this.goToSignle = this.goToSignle.bind(this);
+    this.goToSingle = this.goToSingle.bind(this);
 
   }
 
@@ -23,7 +23,7 @@ class App extends Component {
           page = <AllCinemas/>
     }else if(currentPage === 'allFilms'){
         page = <AllFilms
-                  handleChange={this.goToSignle}
+                  handleChange={this.goToSingle}
                 />
     } else if (currentPage === 'singleFilm') {
         page = <SingleFilm />
@@ -51,7 +51,7 @@ class App extends Component {
     });
   }
 
-  goToSignle(){
+  goToSingle(){
     this.setState({
       currentPage: 'singleFilm'
     })
