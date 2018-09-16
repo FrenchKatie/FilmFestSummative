@@ -4,13 +4,14 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 export class MapContainer extends Component {
   render() {
     return (
+
       <Map google={this.props.google}
-      center={{
+      initialCenter={{
         lat: -41.286461,
         lng: 174.776230
       }}
       className={'map'}
-      zoom={10}>
+      zoom={12}>
 
         <Marker
           title={'Embassy Deluxe'}
