@@ -45,7 +45,7 @@
 // react-node project
 
 const express = require('express');
-const data = require('./data/film-data.json');
+const filmData = require('./data/film-data.json');
 const cors = require('cors');
 
 const app = express();
@@ -58,7 +58,7 @@ app.use(function(req, res, next){
 });
 
 app.get('/films', function(req,res){
-    res.json(data);
+    res.json(filmData);
 });
 
 app.set('port', (process.env.PORT || 5000));

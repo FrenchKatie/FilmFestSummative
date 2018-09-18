@@ -32,6 +32,7 @@ class App extends Component {
       return (
         <div className="App">
           <header>
+                  
             <div className="row text-center">
               <div className="inactive col headerText text-uppercase" onClick={this.changePage.bind(this, 'allCinemas')}>Cinemas</div>
               <div className="active col headerText text-uppercase" onClick={this.changePage.bind(this, 'allFilms')}>Films</div>
@@ -68,7 +69,10 @@ class AllCinemas extends Component {
 }
 
 
+
 class SingleFilm extends Component {
+
+
   render(){
     return (
       <div id="film">
@@ -155,7 +159,11 @@ class AllFilms extends Component {
   }
 
   componentDidMount() {
-    fetch("http://192.168.33.10:5000/films")
+    var apiURL = "http://" + process.env.REACT_APP_API_URL + ":5000/films";
+    console.log(apiURL);
+    // fetch("http://192.168.33.10:5000/films")
+    // fetch("http://localhost:5000/films")
+    fetch(apiURL)
       .then(res => res.json())
       .then(
         (result) => {
@@ -207,6 +215,7 @@ class AllFilms extends Component {
       this.props.handleChange(pageNumber);
     }
 }
+
 
 
 
