@@ -45,7 +45,7 @@
 // react-node project
 
 const express = require('express');
-const data = require('./data/film-data.json');
+const filmData = require('./data/film-data.json'); // Importing the data and storing it in a variable
 const cors = require('cors');
 
 const app = express();
@@ -57,10 +57,12 @@ app.use(function(req, res, next){
     next();
 });
 
+// This function returns the data when /films is requested
 app.get('/films', function(req,res){
-    res.json(data);
+    res.json(filmData); // Here the variable holding the data is returned
 });
 
+// Here the server is being set to run at port 5000
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), function(){
     console.log('Server is running on port '+app.get('port'));
