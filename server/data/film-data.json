@@ -14,6 +14,7 @@
 		"keywords": ["Arctic", "Siberia", "documentry"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/ss/e8/g5/xr/Aga02%20KEY%20FOR%20WEB_crop-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Embassy", "Roxy", "Penthouse", "Light House"],
+		"screenings": [{"Thu":["08:00"]},{"Fri":["07:00"]},{"sat":["06:00"]}],
 		"ageRating": "PG"
 	},
 	{
