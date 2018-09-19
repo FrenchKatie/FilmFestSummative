@@ -84,10 +84,93 @@ class AllCinemas extends Component {
 
 
 class SingleFilm extends Component {
+
+  componentDidMount() {
+    fetch("http://192.168.33.10:5000/films")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            items: result
+          });
+        },
+        (error) => {
+          this.setState({
+            error
+          });
+        }
+      )
+  }
+  
   render(){
+    var x = this.props.filmNumber; // x = film number
     return (
       <div id="film">
-      <h1>The current film ID is - {this.props.filmNumber}</h1>
+      <h1>The current film ID is - {x}</h1>
+      <div className="film-image">
+
+      </div>
+      <div className="film-blurb text-center">
+        <p>A mysterious high-school girl dives headfirst into the vices of teenage life, while undergoing a radical and uncontrollable transformation of her own, in Lisa Brühlmann’s formidable debut feature.</p>
+      </div>
+      <h2 className="film-title text-uppercase text-center">Blue My Mind</h2>
+      <h5 className="film-director text-center text-uppercase">Directed by <span className="font-weight-bold">Lisa Bruhlmann</span></h5>
+      <div className="text-center">
+        <button type="button" name="button" className="btnFill text-uppercase">Watch Trailer</button>
+        <button type="button" name="button" className="btnOutline text-uppercase">Read More Info</button>
+      </div>
+      <div className="filmScreenings">
+        <h3 className="text-uppercase text-center screeningsHeader">Screenings</h3>
+        <div className="screening-dates row">
+          <div className="date-inactive col text-center text-uppercase">
+            <p className="date-day">Sat</p>
+            <p className="date-number">18</p>
+          </div>
+          <div className="date-inactive col text-center text-uppercase">
+            <p className="date-day">Sun</p>
+            <p className="date-number">19</p>
+          </div>
+          <div className="date-active col text-center text-uppercase">
+            <p className="date-day">Mon</p>
+            <p className="date-number">20</p>
+          </div>
+          <div className="date-inactive col text-center text-uppercase">
+            <p className="date-day">Tue</p>
+            <p className="date-number">21</p>
+          </div>
+          <div className="date-inactive col text-center text-uppercase">
+            <p className="date-day">Wed</p>
+            <p className="date-number">22</p>
+          </div>
+        </div>
+        <div className="screening-timetable">
+            <div className="row film-screeningInfo">
+              <div className="film-time col">
+                <h6 className="text-uppercase font-weight-bold">11.00 am</h6>
+              </div>
+              <div className="film-cinema col">
+                <h6 className="text-uppercase text-right">Lighthouse</h6>
+              </div>
+            </div>
+            <div className="row film-screeningInfo">
+              <div className="film-time col">
+                <h6 className="text-uppercase font-weight-bold">11.45 am</h6>
+              </div>
+              <div className="film-cinema col">
+                <h6 className="text-uppercase text-right">Penthouse</h6>
+              </div>
+            </div>
+            <div className="row film-screeningInfo">
+              <div className="film-time col">
+                <h6 className="text-uppercase font-weight-bold">1.30 am</h6>
+              </div>
+              <div className="film-cinema col">
+                <h6 className="text-uppercase text-right">Embassy</h6>
+              </div>
+            </div>
+        </div>
+      </div>
+
 
       </div>
     )
