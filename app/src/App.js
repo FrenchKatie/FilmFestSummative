@@ -77,7 +77,9 @@ class AllCinemas extends Component {
     render() {
 
       return (
-        <GoogleApiWrapper />
+        <div className="main">
+          <GoogleApiWrapper />
+        </div>
       );
     }
 }
@@ -85,13 +87,25 @@ class AllCinemas extends Component {
 
 class SingleFilm extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      currentPage: 'SingleFilm',
+      error: null,
+      isLoaded: false,
+      film: [],
+      currentFilm: this.props.filmNumber
+    }
+
+  }
+
   componentDidMount() {
-    fetch("http://192.168.33.10:5000/films")
+    fetch("http://192.168.33.10:5000/filmsNumber/"+this.props.filmNumber)
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
-            items: result
+            film: result
           });
         },
         (error) => {
@@ -101,79 +115,89 @@ class SingleFilm extends Component {
         }
       )
   }
-  
+
   render(){
-    var x = this.props.filmNumber; // x = film number
-    return (
-      <div id="film">
-      <h1>The current film ID is - {x}</h1>
-      <div className="film-image">
 
-      </div>
-      <div className="film-blurb text-center">
-        <p>A mysterious high-school girl dives headfirst into the vices of teenage life, while undergoing a radical and uncontrollable transformation of her own, in Lisa Brühlmann’s formidable debut feature.</p>
-      </div>
-      <h2 className="film-title text-uppercase text-center">Blue My Mind</h2>
-      <h5 className="film-director text-center text-uppercase">Directed by <span className="font-weight-bold">Lisa Bruhlmann</span></h5>
-      <div className="text-center">
-        <button type="button" name="button" className="btnFill text-uppercase">Watch Trailer</button>
-        <button type="button" name="button" className="btnOutline text-uppercase">Read More Info</button>
-      </div>
-      <div className="filmScreenings">
-        <h3 className="text-uppercase text-center screeningsHeader">Screenings</h3>
-        <div className="screening-dates row">
-          <div className="date-inactive col text-center text-uppercase">
-            <p className="date-day">Sat</p>
-            <p className="date-number">18</p>
+    const error = this.state.error;
+    const currentPage = this.state.currentPage;
+    var film = this.state.film;
+    console.log(film.director);
+
+    if (error){
+      return <div>Error: {error.message}</div>;
+    } else if (currentPage === 'SingleFilm'){
+      return (
+        <div className="main">
+        <div className="film-image" style={{backgroundImage: `url(${film.images})`}}>
+
+        </div>
+        <div className="film-blurb text-center">
+          <p>{film.blurb}</p>
+        </div>
+        <h2 className="film-title text-uppercase text-center">{film.title}</h2>
+        <h5 className="film-director text-center text-uppercase">Directed by <span className="font-weight-bold">{film.director}</span></h5>
+        <div className="text-center">
+          <button type="button" name="button" className="btnFill text-uppercase">Watch Trailer</button>
+          <button type="button" name="button" className="btnOutline text-uppercase">Read More Info</button>
+        </div>
+        <div className="filmScreenings">
+          <h3 className="text-uppercase text-center screeningsHeader">Screenings</h3>
+          <div className="screening-dates row">
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Sat</p>
+              <p className="date-number">18</p>
+            </div>
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Sun</p>
+              <p className="date-number">19</p>
+            </div>
+            <div className="date-active col text-center text-uppercase">
+              <p className="date-day">Mon</p>
+              <p className="date-number">20</p>
+            </div>
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Tue</p>
+              <p className="date-number">21</p>
+            </div>
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Wed</p>
+              <p className="date-number">22</p>
+            </div>
           </div>
-          <div className="date-inactive col text-center text-uppercase">
-            <p className="date-day">Sun</p>
-            <p className="date-number">19</p>
-          </div>
-          <div className="date-active col text-center text-uppercase">
-            <p className="date-day">Mon</p>
-            <p className="date-number">20</p>
-          </div>
-          <div className="date-inactive col text-center text-uppercase">
-            <p className="date-day">Tue</p>
-            <p className="date-number">21</p>
-          </div>
-          <div className="date-inactive col text-center text-uppercase">
-            <p className="date-day">Wed</p>
-            <p className="date-number">22</p>
+          <div className="screening-timetable">
+              <div className="row film-screeningInfo">
+                <div className="film-time col">
+                  <h6 className="text-uppercase font-weight-bold">11.00 am</h6>
+                </div>
+                <div className="film-cinema col">
+                  <h6 className="text-uppercase text-right">{film.venue}</h6>
+                </div>
+              </div>
+              <div className="row film-screeningInfo">
+                <div className="film-time col">
+                  <h6 className="text-uppercase font-weight-bold">11.45 am</h6>
+                </div>
+                <div className="film-cinema col">
+                  <h6 className="text-uppercase text-right">null</h6>
+                </div>
+              </div>
+              <div className="row film-screeningInfo">
+                <div className="film-time col">
+                  <h6 className="text-uppercase font-weight-bold">1.30 am</h6>
+                </div>
+                <div className="film-cinema col">
+                  <h6 className="text-uppercase text-right">null</h6>
+                </div>
+              </div>
           </div>
         </div>
-        <div className="screening-timetable">
-            <div className="row film-screeningInfo">
-              <div className="film-time col">
-                <h6 className="text-uppercase font-weight-bold">11.00 am</h6>
-              </div>
-              <div className="film-cinema col">
-                <h6 className="text-uppercase text-right">Lighthouse</h6>
-              </div>
-            </div>
-            <div className="row film-screeningInfo">
-              <div className="film-time col">
-                <h6 className="text-uppercase font-weight-bold">11.45 am</h6>
-              </div>
-              <div className="film-cinema col">
-                <h6 className="text-uppercase text-right">Penthouse</h6>
-              </div>
-            </div>
-            <div className="row film-screeningInfo">
-              <div className="film-time col">
-                <h6 className="text-uppercase font-weight-bold">1.30 am</h6>
-              </div>
-              <div className="film-cinema col">
-                <h6 className="text-uppercase text-right">Embassy</h6>
-              </div>
-            </div>
+
+
         </div>
-      </div>
+      )
+    }
 
 
-      </div>
-    )
   }
 }
 
@@ -218,7 +242,7 @@ class AllFilms extends Component {
         return <div>Error: {error.message}</div>;
       } else if (currentPage === 'allFilms'){
         return (
-          <div id="filmList">
+          <div className="main">
             {items.map(item => (
               <div key={item.title}>
               <div className="filmListItem row" onClick={this.setPage.bind(this, item.id)}>
@@ -244,7 +268,6 @@ class AllFilms extends Component {
       this.setState({
         currentFilm: itemID
       });
-      console.log(itemID);
       this.props.setFilmNumber(itemID);
     }
 }
