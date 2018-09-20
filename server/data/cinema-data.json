@@ -1,6 +1,7 @@
 [
   {
     "Lighthouse":{
+        "id":0,
         "phone": "04 385 3337",
         "street": "29 Wigan Street",
         "suburb": "Te Aro",
@@ -104,6 +105,7 @@
   },
   {
     "Penthouse":{
+        "id":1,
         "phone": "04 384 3157",
         "street": "205 Ohiro Road",
         "suburb": "Brooklyn",
@@ -207,6 +209,7 @@
   },
   {
     "Reading":{
+        "id": 2,
         "phone": "04 801 4600",
         "street": "Level 1, 100 Courtenay Place",
         "suburb": "Te Aro",
@@ -310,6 +313,7 @@
   },
   {
     "Embassy":{
+        "id": 3,
         "phone": "04 384 7657",
         "street": "10 Kent Terrace",
         "suburb": "Te Aro",

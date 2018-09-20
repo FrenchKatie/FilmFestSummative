@@ -111,10 +111,14 @@ class AllCinemas extends Component {
 
     render() {
 
+      console.log("working");
+
       return (
         <GoogleApiWrapper />
       );
+
     }
+
 
 }
 
