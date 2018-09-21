@@ -10,7 +10,8 @@
 
 .main{
   height: 88vh;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .div1{
@@ -154,7 +155,8 @@ p{
   padding-bottom: 0.5em;
 }
 .screening-dates{
-  overflow-x: scroll !important;
+  width: 500px;
+  overflow-x: scroll;
 }
 .screenings{
   width: 100%;

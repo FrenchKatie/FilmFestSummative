@@ -14,7 +14,6 @@ class App extends Component {
     }
 
     this.changePage = this.changePage.bind(this);
-    // this.setFilmNumber = this.setFilmNumber.bind(this);
     this.handleSetFilmNumber = this.handleSetFilmNumber.bind(this);
   }
 
@@ -46,6 +45,7 @@ class App extends Component {
       return (
         <div className="App">
           <header>
+
             <div className="row text-center">
               <div className={`col headerText text-uppercase ${this.state.cinemaTab}`} onClick={this.changePage.bind(this, 'allCinemas')}>Cinemas</div>
               <div className={`col headerText text-uppercase  ${this.state.filmTab}`} onClick={this.changePage.bind(this, 'allFilms')}>Films</div>
@@ -80,6 +80,38 @@ class App extends Component {
 }
 
 class AllCinemas extends Component {
+
+    constructor(props){
+      super(props);
+      this.state = {
+        currentPage: 'allFilms',
+        error: null,
+        isLoaded: false,
+        items: []
+      }
+
+    }
+
+    componentDidMount() {
+      var apiURL = "http://" + process.env.REACT_APP_API_URL + ":5000/cinemas";
+      // fetch("http://192.168.33.10:5000/cinemas")
+      // fetch("http://localhost:5000/cinemas")
+      fetch(apiURL)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              items: result
+            });
+          },
+          (error) => {
+            this.setState({
+              error
+            });
+          }
+        )
+    }
+
     render() {
 
       return (
@@ -87,8 +119,12 @@ class AllCinemas extends Component {
           <GoogleApiWrapper />
         </div>
       );
+
     }
+
+
 }
+
 
 
 class SingleFilm extends Component {
@@ -108,7 +144,7 @@ class SingleFilm extends Component {
   }
 
   componentDidMount() {
-    fetch("http://192.168.33.10:5000/filmsNumber/"+this.props.filmNumber)
+    fetch("http://" + process.env.REACT_APP_API_URL + ":5000/filmsNumber/"+this.props.filmNumber)
       .then(res => res.json())
       .then(
         (result) => {
@@ -172,6 +208,14 @@ class SingleFilm extends Component {
               <p className="date-day">Wed</p>
               <p className="date-number">22</p>
             </div>
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Thur</p>
+              <p className="date-number">23</p>
+            </div>
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Fri</p>
+              <p className="date-number">24</p>
+            </div>
           </div>
 
           {venues.map(venue => (
@@ -216,7 +260,10 @@ class AllFilms extends Component {
   }
 
   componentDidMount() {
-    fetch("http://192.168.33.10:5000/films")
+    var apiURL = "http://" + process.env.REACT_APP_API_URL + ":5000/films";
+    // fetch("http://192.168.33.10:5000/films")
+    // fetch("http://localhost:5000/films")
+    fetch(apiURL)
       .then(res => res.json())
       .then(
         (result) => {
@@ -270,6 +317,7 @@ class AllFilms extends Component {
       this.props.setFilmNumber(itemID);
     }
 }
+
 
 
 
