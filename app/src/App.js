@@ -8,13 +8,14 @@ class App extends Component {
     super(props);
     this.state = {
       currentPage: 'allCinemas',
-      currentFilm: null
+      currentFilm: null,
+      cinemaTab: 'active',
+      filmTab: 'inactive'
     }
 
     this.changePage = this.changePage.bind(this);
     // this.setFilmNumber = this.setFilmNumber.bind(this);
     this.handleSetFilmNumber = this.handleSetFilmNumber.bind(this);
-
   }
 
   render() {
@@ -25,10 +26,14 @@ class App extends Component {
     if(this.state.currentFilm === null){
       if(currentPage === 'allCinemas'){
             page = <AllCinemas/>
+            this.state.cinemaTab = 'active';
+            this.state.filmTab = 'inactive';
       }else if(currentPage === 'allFilms'){
           page = <AllFilms
             setFilmNumber={this.handleSetFilmNumber}
           />
+          this.state.cinemaTab = 'inactive';
+          this.state.filmTab = 'active';
       }
     } else {
       page = <SingleFilm
@@ -42,8 +47,8 @@ class App extends Component {
         <div className="App">
           <header>
             <div className="row text-center">
-              <div className="inactive col headerText text-uppercase" onClick={this.changePage.bind(this, 'allCinemas')}>Cinemas</div>
-              <div className="active col headerText text-uppercase" onClick={this.changePage.bind(this, 'allFilms')}>Films</div>
+              <div className={`col headerText text-uppercase ${this.state.cinemaTab}`} onClick={this.changePage.bind(this, 'allCinemas')}>Cinemas</div>
+              <div className={`col headerText text-uppercase  ${this.state.filmTab}`} onClick={this.changePage.bind(this, 'allFilms')}>Films</div>
             </div>
           </header>
           <div>
@@ -56,7 +61,8 @@ class App extends Component {
 
   changePage(pageNumber){
     this.setState({
-      currentPage: pageNumber
+      currentPage: pageNumber,
+      currentFilm: null
     });
   }
 
@@ -93,8 +99,10 @@ class SingleFilm extends Component {
       currentPage: 'SingleFilm',
       error: null,
       isLoaded: false,
-      film: [],
+      film: {},
+      venues: [],
       currentFilm: this.props.filmNumber
+
     }
 
   }
@@ -105,7 +113,8 @@ class SingleFilm extends Component {
       .then(
         (result) => {
           this.setState({
-            film: result
+            film: result,
+            venues: result.venue
           });
         },
         (error) => {
@@ -121,7 +130,7 @@ class SingleFilm extends Component {
     const error = this.state.error;
     const currentPage = this.state.currentPage;
     var film = this.state.film;
-    console.log(film.director);
+    var venues = this.state.venues;
 
     if (error){
       return <div>Error: {error.message}</div>;
@@ -164,40 +173,30 @@ class SingleFilm extends Component {
               <p className="date-number">22</p>
             </div>
           </div>
-          <div className="screening-timetable">
-              <div className="row film-screeningInfo">
-                <div className="film-time col">
-                  <h6 className="text-uppercase font-weight-bold">11.00 am</h6>
-                </div>
-                <div className="film-cinema col">
-                  <h6 className="text-uppercase text-right">{film.venue}</h6>
-                </div>
-              </div>
-              <div className="row film-screeningInfo">
-                <div className="film-time col">
-                  <h6 className="text-uppercase font-weight-bold">11.45 am</h6>
-                </div>
-                <div className="film-cinema col">
-                  <h6 className="text-uppercase text-right">null</h6>
-                </div>
-              </div>
-              <div className="row film-screeningInfo">
-                <div className="film-time col">
-                  <h6 className="text-uppercase font-weight-bold">1.30 am</h6>
-                </div>
-                <div className="film-cinema col">
-                  <h6 className="text-uppercase text-right">null</h6>
-                </div>
-              </div>
+
+          {venues.map(venue => (
+              <div key={venue} className="screening-timetable">
+                  <div className="row film-screeningInfo">
+                    <div className="film-time col">
+                      <h6 className="text-uppercase font-weight-bold">11.00 am</h6>
+                    </div>
+                    <div className="film-cinema col">
+                      <h6 className="text-uppercase text-right">{venue}</h6>
+                    </div>
+                  </div>
+            </div>
+
+          ))}
+
           </div>
-        </div>
-
-
         </div>
       )
     }
 
 
+  }
+  changePage(){
+    this.props.setFilmNumber(null);
   }
 }
 

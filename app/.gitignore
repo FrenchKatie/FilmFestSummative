@@ -5,6 +5,7 @@
 
 # testing
 /coverage
+spare-page.txt
 
 # production
 /build
