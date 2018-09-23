@@ -14,18 +14,27 @@ export class MapContainer extends Component {
   }
 
 
-   onMarkerClick = (props, marker) =>
+   onMarkerClick = (props, marker) => {
      this.setState({
        activeMarker: marker,
        selectedPlace: props,
        showingInfoWindow: true
      });
+     // onInfoWindowClick();
+   };
 
    onInfoWindowClose = () =>
      this.setState({
        activeMarker: null,
        showingInfoWindow: false
      });
+
+     onInfoWindowClick = () => {
+       if (this.state.showingInfoWindow){
+         console.log('clicked!');
+       }
+     };
+
 
    onMapClicked = () => {
      if (this.state.showingInfoWindow)
@@ -114,6 +123,7 @@ export class MapContainer extends Component {
       <InfoWindow
          marker={this.state.activeMarker}
          onClose={this.onInfoWindowClose}
+         onClick={this.onInfoWindowClick}
          visible={this.state.showingInfoWindow}>
          <div>
            <h5>{this.state.selectedPlace.name}</h5>

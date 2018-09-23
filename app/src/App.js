@@ -22,6 +22,7 @@ class App extends Component {
     var currentFilm = this.state.currentFilm;
     let page;
 
+    {/* When currentFilm is set a valid value, it will change to the single film page */}
     if(this.state.currentFilm === null){
       if(currentPage === 'allCinemas'){
             page = <AllCinemas/>
@@ -33,7 +34,7 @@ class App extends Component {
           />
           this.state.cinemaTab = 'inactive';
           this.state.filmTab = 'active';
-      }
+      } {/* handleSetFilmNumber() is the function being invoked using the argument we set on line 339 */}
     } else {
       page = <SingleFilm
         filmNumber={currentFilm}
@@ -67,6 +68,8 @@ class App extends Component {
   }
 
   handleSetFilmNumber(itemID){
+    {/* this function is setting the current film to the number that was clicked*/}
+    {/* see line 25*/}
     this.setState({
       currentFilm: itemID
     });
@@ -137,7 +140,9 @@ class SingleFilm extends Component {
       isLoaded: false,
       film: {},
       venues: [],
-      currentFilm: this.props.filmNumber
+      currentFilm: this.props.filmNumber,
+      cinemaInfo: [],
+      activeTab: null,
 
     }
 
@@ -158,7 +163,22 @@ class SingleFilm extends Component {
             error
           });
         }
-      )
+      );
+
+      fetch("http://" + process.env.REACT_APP_API_URL + ":5000/cinemas/")
+        .then(res => res.json())
+        .then(
+          (cinemaResult) => {
+            this.setState({
+              cinemaInfo: cinemaResult
+            });
+          },
+          (cinemaError) => {
+            this.setState({
+              cinemaError
+            });
+          }
+        )
   }
 
   render(){
@@ -166,7 +186,10 @@ class SingleFilm extends Component {
     const error = this.state.error;
     const currentPage = this.state.currentPage;
     var film = this.state.film;
+    var screenings = this.state.cinemaInfo;
     var venues = this.state.venues;
+
+    console.log(screenings);
 
     if (error){
       return <div>Error: {error.message}</div>;
@@ -185,44 +208,46 @@ class SingleFilm extends Component {
           <button type="button" name="button" className="btnFill text-uppercase">Watch Trailer</button>
           <button type="button" name="button" className="btnOutline text-uppercase">Read More Info</button>
         </div>
-        <div className="filmScreenings">
-          <h3 className="text-uppercase text-center screeningsHeader">Screenings</h3>
-          <div className="screening-dates row">
-            <div className="date-inactive col text-center text-uppercase">
-              <p className="date-day">Sat</p>
-              <p className="date-number">18</p>
+          <div className="filmScreenings">
+            <h3 className="text-uppercase text-center screeningsHeader">Screenings</h3>
+            <div className="scroll-ctnr">
+              <div className="screening-dates row">
+                <div className="date-inactive col text-center text-uppercase">
+                  <p className="date-day">Sat</p>
+                  <p className="date-number">18</p>
+                </div>
+                <div className="date-inactive col text-center text-uppercase">
+                  <p className="date-day">Sun</p>
+                  <p className="date-number">19</p>
+                </div>
+                <div className="date-active col text-center text-uppercase">
+                  <p className="date-day">Mon</p>
+                  <p className="date-number">20</p>
+                </div>
+                <div className="date-inactive col text-center text-uppercase">
+                  <p className="date-day">Tue</p>
+                  <p className="date-number">21</p>
+                </div>
+                <div className="date-inactive col text-center text-uppercase">
+                  <p className="date-day">Wed</p>
+                  <p className="date-number">22</p>
+                </div>
+                <div className="date-inactive col text-center text-uppercase">
+                  <p className="date-day">Thur</p>
+                  <p className="date-number">23</p>
+                </div>
+                <div className="date-inactive col text-center text-uppercase">
+                  <p className="date-day">Fri</p>
+                  <p className="date-number">24</p>
+                </div>
+              </div>
             </div>
-            <div className="date-inactive col text-center text-uppercase">
-              <p className="date-day">Sun</p>
-              <p className="date-number">19</p>
-            </div>
-            <div className="date-active col text-center text-uppercase">
-              <p className="date-day">Mon</p>
-              <p className="date-number">20</p>
-            </div>
-            <div className="date-inactive col text-center text-uppercase">
-              <p className="date-day">Tue</p>
-              <p className="date-number">21</p>
-            </div>
-            <div className="date-inactive col text-center text-uppercase">
-              <p className="date-day">Wed</p>
-              <p className="date-number">22</p>
-            </div>
-            <div className="date-inactive col text-center text-uppercase">
-              <p className="date-day">Thur</p>
-              <p className="date-number">23</p>
-            </div>
-            <div className="date-inactive col text-center text-uppercase">
-              <p className="date-day">Fri</p>
-              <p className="date-number">24</p>
-            </div>
-          </div>
 
           {venues.map(venue => (
               <div key={venue} className="screening-timetable">
                   <div className="row film-screeningInfo">
                     <div className="film-time col">
-                      <h6 className="text-uppercase font-weight-bold">11.00 am</h6>
+                      <h6 className="text-uppercase font-weight-bold">11:00 am</h6>
                     </div>
                     <div className="film-cinema col">
                       <h6 className="text-uppercase text-right">{venue}</h6>
@@ -291,6 +316,7 @@ class AllFilms extends Component {
           <div className="main">
             {items.map(item => (
               <div key={item.title}>
+              {/* Here when the film div is clicked, a function runs and carries the film's number (item.id) as an argument */}
               <div className="filmListItem row" onClick={this.setPage.bind(this, item.id)}>
                 <div className="col">
                   <div className="filmListItem-img" id={item.id} style={{backgroundImage: `url(${item.images[0]})`}}>
@@ -310,10 +336,14 @@ class AllFilms extends Component {
       }
     }
 
+    // {/* itemID = the number of the film*/}
+    // {/* This function takes the film's number and returns it to the component where it is being rendered */}
     setPage(itemID){
       this.setState({
         currentFilm: itemID
       });
+      {/* This component has a property called "setFilmNumber" which runs a function. Here we are invoking the function with the itemID as an argument to make it dynamic*/}
+      {/* see line 32 & 37 */}
       this.props.setFilmNumber(itemID);
     }
 }

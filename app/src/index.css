@@ -10,8 +10,6 @@
 
 .main{
   height: 88vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
 
 .div1{
@@ -154,10 +152,25 @@ p{
   border-bottom: 1px solid #0797B4;
   padding-bottom: 0.5em;
 }
+
+.scroll-ctnr{
+  overflow-x: scroll;
+  width: 100vw;
+}
+
+.scroll-ctnr::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-ctnr::-ms-scrollbar {
+  display: none;
+}
+
 .screening-dates{
   width: 500px;
   overflow-x: scroll;
 }
+
 .screenings{
   width: 100%;
 }
