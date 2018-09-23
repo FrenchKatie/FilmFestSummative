@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import './index.css';
 import GoogleApiWrapper from './map';
-import ReactDOM from 'react-dom';
-import Button from '@material-ui/core/Button';
+
+// import { render } from 'react-dom';
+// import Map from './newMap'
+
+
 
 class App extends Component {
 
