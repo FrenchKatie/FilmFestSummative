@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import './index.css';
 export class MapContainer extends Component {
@@ -10,7 +11,8 @@ export class MapContainer extends Component {
      selectedPlace: {},
      showingInfoWindow: false
    };
-   // this.showAlert = this.showAlert.bind(this);
+   this.showAlert = this.showAlert.bind(this);
+   this.onInfoWindowOpen = this.onInfoWindowOpen.bind(this);
   }
 
 
@@ -44,36 +46,20 @@ export class MapContainer extends Component {
        });
    };
 
-   // showAlert() {
-   //   alert("Im an alert");
-   // }
+   showAlert = () => {
+     alert("Im an alert");
+   }
 
+   onInfoWindowOpen(props, e) {
+       const button = (<button onClick={this.showAlert}>mapbutton</button>
+       );
 
+       ReactDOM.render(React.Children.only(button), document.getElementById("iwc"));
+     }
 
 
   render() {
     var clickedMarker = document.getElementsByClassName('markerClick');
-    console.dir(clickedMarker);
-
-    // var clickedInfobox = document.getElementsByClassName('markerClick')["0"].parentElement.parentElement.parentElement.parentElement.parentElement;
-    // console.dir(clickedInfobox);
-
-    // document.getElementsByClassName("markerClick").addEventListener("click", function(){
-        // document.getElementById("demo").innerHTML = "Hello World";
-        // console.log("button clicked");
-    // });
-
-    // function test(){
-    //   console.log("test click");
-    // }
-    // function handleClick(e) {
-    //   e.preventDefault();
-    //   alert('The link was clicked.');
-    // }
-
-
-
-
 
     if (!this.props.loaded) return <div>Loading...</div>;
 
@@ -123,19 +109,27 @@ export class MapContainer extends Component {
       <InfoWindow
          marker={this.state.activeMarker}
          onClose={this.onInfoWindowClose}
-         onClick={this.onInfoWindowClick}
-         visible={this.state.showingInfoWindow}>
-         <div>
+         visible={this.state.showingInfoWindow}
+         onOpen={e => {
+            this.onInfoWindowOpen(this.props, e);
+          }}
+         >
+
+
+
+         <div className="pink">
            <h5>{this.state.selectedPlace.name}</h5>
            <h5>{this.state.selectedPlace.id}</h5>
-
-           <button className="markerClick" id={this.state.selectedPlace.id} onClick={this.showAlert}>Click for more information</button>
+           <div id="iwc" />
          </div>
        </InfoWindow>
 
       </Map>
+
     );
   }
+
+
 }
 
 

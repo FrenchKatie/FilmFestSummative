@@ -1,4 +1,8 @@
 console.log('JS loaded');
+
+// document.on('click', '#0', function(){
+//   alert("from js");
+// })
 // var data;
 // console.log(items);
 // ----------DOM QUERIES----------

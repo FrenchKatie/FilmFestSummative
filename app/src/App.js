@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './index.css';
 import GoogleApiWrapper from './map';
 
+// import { render } from 'react-dom';
+// import Map from './newMap'
+
+
+
 class App extends Component {
 
   constructor(props){
