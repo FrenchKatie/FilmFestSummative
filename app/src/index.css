@@ -123,8 +123,9 @@ p{
   font-family: "Oswald";
   margin-top: 1em;
 }
-.film-director{
+.film-info{
   font-size: 0.8em;
+  margin-bottom: 1em;
 }
 .film-btns{
   margin-top: 3em;
@@ -146,6 +147,20 @@ p{
   padding: 1.5em 0em;
   width: 18em;
 }
+
+.more-info{
+  width: 80%;
+  margin: 2em auto;
+}
+
+.hidden{
+  display: none;
+}
+
+.visible{
+  display: block;
+}
+
 .screeningsHeader{
   font-size: 1.2em;
   margin-top: 2em;

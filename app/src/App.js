@@ -254,9 +254,12 @@ class SingleFilm extends Component {
       currentFilm: this.props.filmNumber,
       cinemaInfo: [],
       activeTab: null,
+      moreInfo: 'hidden',
       dateTabs: document.getElementsByClassName('date-tab')
 
     }
+
+    this.toggleShowInfo = this.toggleShowInfo.bind(this);
 
   }
 
@@ -335,7 +338,13 @@ class SingleFilm extends Component {
         <h2 className="film-title text-uppercase text-center">{film.title}</h2>
         <h5 className="film-director text-center text-uppercase">Directed by <span className="font-weight-bold">{film.director}</span></h5>
         <div className="text-center">
-          <button type="button" name="button" className="btnOutline text-uppercase">Read More Info</button>
+          <button type="button" name="button" className="btnOutline text-uppercase" onClick={this.toggleShowInfo.bind(this)}>Read More Info</button>
+        </div>
+        <div className={`more-info ${this.state.moreInfo}`}>
+          <h5 className="film-info text-center text-uppercase">Produced by <span className="font-weight-bold">{film.producer}</span></h5>
+          <h5 className="film-info text-center text-uppercase">Edited by <span className="font-weight-bold">{film.editor}</span></h5>
+          <h5 className="film-info text-center text-uppercase">Music by <span className="font-weight-bold">{film.music}</span></h5>
+          <p>{film.description}</p>
         </div>
           <div className="filmScreenings">
             <h3 className="text-uppercase text-center screeningsHeader">Screenings</h3>
@@ -492,9 +501,20 @@ class SingleFilm extends Component {
 
   }
 
-
-
+  toggleShowInfo(){
+    console.log(this.state.moreInfo);
+    if (this.state.moreInfo === 'hidden'){
+      this.setState({
+        moreInfo: 'visible'
+      });
+    } else {
+      this.setState({
+        moreInfo: 'hidden'
+      });
+    }
+  }
 }
+
 
 
 class AllFilms extends Component {
