@@ -89,7 +89,6 @@ class App extends Component {
       currentCinema: cinemaID, //current cinema is now user selected one
       currentPage: 'singleCinema' //run the if statement for if currentPage = singleCinema
     });
-    console.log('we are FINALLY on: ' + cinemaID); //works
   }
 
 }
@@ -108,26 +107,6 @@ class AllCinemas extends Component {
 
       this.setCinemaNumber = this.setCinemaNumber.bind(this);
 
-    }
-
-    componentDidMount() {
-      var apiURL = "http://" + process.env.REACT_APP_API_URL + ":5000/cinemas";
-      // fetch("http://192.168.33.10:5000/cinemas")
-      // fetch("http://localhost:5000/cinemas")
-      fetch(apiURL)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-              items: result
-            });
-          },
-          (error) => {
-            this.setState({
-              error
-            });
-          }
-        )
     }
 
     render() {
@@ -163,11 +142,95 @@ class AllCinemas extends Component {
 
 class SingleCinema extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      currentPage: 'SingleCinema',
+      error: null,
+      isLoaded: false,
+      items: []
+    }
+
+  }
+
+  componentDidMount() {
+    var apiURL = "http://" + process.env.REACT_APP_API_URL + ":5000/cinemas";
+    // fetch("http://192.168.33.10:5000/cinemas")
+    // fetch("http://localhost:5000/cinemas")
+    fetch(apiURL)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            items: result
+          });
+        },
+        (error) => {
+          this.setState({
+            error
+          });
+        }
+      )
+  }
+
   render(){
-    console.log('You are on single cinema');
+    var currentCinema = this.props.cinemaNumber;
+    var items = this.state.items;
+    console.log(items);
+    console.log(currentCinema);
+
     return (
       <div id="cinema">
-        <h1>The current cinema ID is - {this.props.cinemaNumber}</h1>
+        <div className="cinema">
+          <div className="row">
+            <div id="cinemaMap" className="col"></div>
+            <div id="cinemaInfo" className="col">
+              <div id="cinema-address">
+                <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Address</h6>
+                <p id="cinema-address-street" className="cinemaInfo-text">129 Imaginary Street</p>
+                <p id="cinema-address-suburb" className="cinemaInfo-text">Te Aro</p>
+                <p id="cinema-address-city" className="cinemaInfo-text">Wellington</p>
+              </div>
+              <div id="cinema-phone">
+                <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Phone</h6>
+                <p className="cinemaInfo-text">(04) 587 2653</p>
+              </div>
+              <div id="cinema-hours" className="">
+                <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Opening Hours</h6>
+                <div id="cinema-hours-monday" className="row">
+                  <p className="cinemaInfo-text cinemaInfo-days col">Monday</p>
+                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+                </div>
+                <div id="cinema-hours-tuesday" className="row">
+                  <p className="cinemaInfo-text cinemaInfo-days col">Tuesday</p>
+                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+                </div>
+                <div id="cinema-hours-wednesday" className="row">
+                  <p className="cinemaInfo-text cinemaInfo-days col">Wednesday</p>
+                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+                </div>
+                <div id="cinema-hours-thursday" className="row">
+                  <p className="cinemaInfo-text cinemaInfo-days col">Thursday</p>
+                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+                </div>
+                <div id="cinema-hours-friday" className="row">
+                  <p className="cinemaInfo-text cinemaInfo-days col">Friday</p>
+                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+                </div>
+                <div id="cinema-hours-saturday" className="row">
+                  <p className="cinemaInfo-text cinemaInfo-days col">Saturday</p>
+                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+                </div>
+                <div id="cinema-hours-sunday" className="row">
+                  <p className="cinemaInfo-text cinemaInfo-days col">Sunday</p>
+                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     )
   }

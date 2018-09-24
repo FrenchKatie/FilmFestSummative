@@ -1,6 +1,5 @@
 [
-  {
-    "Lighthouse":{
+      {
         "id":0,
         "phone": "04 385 3337",
         "street": "29 Wigan Street",
@@ -101,10 +100,8 @@
             "9": ["10:00pm" , "10:00pm"]
           }
         }
-    }
-  },
-  {
-    "Penthouse":{
+    },
+    {
         "id":1,
         "phone": "04 384 3157",
         "street": "205 Ohiro Road",
@@ -205,10 +202,8 @@
             "9": ["10:00pm" , "10:00pm"]
           }
         }
-    }
-  },
-  {
-    "Reading":{
+    },
+    {
         "id": 2,
         "phone": "04 801 4600",
         "street": "Level 1, 100 Courtenay Place",
@@ -309,10 +304,8 @@
             "9": ["10:00pm" , "10:00pm"]
           }
         }
-    }
-  },
-  {
-    "Embassy":{
+    },
+      {
         "id": 3,
         "phone": "04 384 7657",
         "street": "10 Kent Terrace",
@@ -414,5 +407,4 @@
           }
         }
     }
-  }
 ]
