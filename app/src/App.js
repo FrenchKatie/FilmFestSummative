@@ -147,14 +147,14 @@ class SingleCinema extends Component {
     this.state = {
       currentPage: 'SingleCinema',
       error: null,
-      isLoaded: false,
-      items: []
+      cinemaInfo: {},
+      openingHours: {}
     }
 
   }
 
   componentDidMount() {
-    var apiURL = "http://" + process.env.REACT_APP_API_URL + ":5000/cinemas";
+    var apiURL = "http://" + process.env.REACT_APP_API_URL + ":5000/cinemasNumber/"+this.props.cinemaNumber;
     // fetch("http://192.168.33.10:5000/cinemas")
     // fetch("http://localhost:5000/cinemas")
     fetch(apiURL)
@@ -162,7 +162,8 @@ class SingleCinema extends Component {
       .then(
         (result) => {
           this.setState({
-            items: result
+            cinemaInfo: result,
+            openingHours: result.openingHours
           });
         },
         (error) => {
@@ -175,64 +176,65 @@ class SingleCinema extends Component {
 
   render(){
     var currentCinema = this.props.cinemaNumber;
-    var items = this.state.items;
-    console.log(items);
-    console.log(currentCinema);
+    var cinemaInfo = this.state.cinemaInfo;
+    var openingHours = this.state.openingHours;
 
-    return (
-      <div id="cinema">
-        <div className="cinema">
-          <div className="row">
-            <div id="cinemaMap" className="col"></div>
-            <div id="cinemaInfo" className="col">
-              <div id="cinema-address">
-                <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Address</h6>
-                <p id="cinema-address-street" className="cinemaInfo-text">129 Imaginary Street</p>
-                <p id="cinema-address-suburb" className="cinemaInfo-text">Te Aro</p>
-                <p id="cinema-address-city" className="cinemaInfo-text">Wellington</p>
-              </div>
-              <div id="cinema-phone">
-                <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Phone</h6>
-                <p className="cinemaInfo-text">(04) 587 2653</p>
-              </div>
-              <div id="cinema-hours" className="">
-                <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Opening Hours</h6>
-                <div id="cinema-hours-monday" className="row">
-                  <p className="cinemaInfo-text cinemaInfo-days col">Monday</p>
-                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+      console.log(openingHours.Monday);
+      return (
+        <div id="cinema">
+          <div className="cinema">
+            <div className="row">
+              <div id="cinemaMap" className="col"></div>
+              <div id="cinemaInfo" className="col">
+                <div id="cinema-address">
+                  <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Address</h6>
+                  <p id="cinema-address-street" className="cinemaInfo-text">{cinemaInfo.street}</p>
+                  <p id="cinema-address-suburb" className="cinemaInfo-text">{cinemaInfo.suburb}</p>
+                  <p id="cinema-address-city" className="cinemaInfo-text">{cinemaInfo.city}</p>
                 </div>
-                <div id="cinema-hours-tuesday" className="row">
-                  <p className="cinemaInfo-text cinemaInfo-days col">Tuesday</p>
-                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+                <div id="cinema-phone">
+                  <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Phone</h6>
+                  <p className="cinemaInfo-text">{cinemaInfo.phone}</p>
                 </div>
-                <div id="cinema-hours-wednesday" className="row">
-                  <p className="cinemaInfo-text cinemaInfo-days col">Wednesday</p>
-                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
-                </div>
-                <div id="cinema-hours-thursday" className="row">
-                  <p className="cinemaInfo-text cinemaInfo-days col">Thursday</p>
-                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
-                </div>
-                <div id="cinema-hours-friday" className="row">
-                  <p className="cinemaInfo-text cinemaInfo-days col">Friday</p>
-                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
-                </div>
-                <div id="cinema-hours-saturday" className="row">
-                  <p className="cinemaInfo-text cinemaInfo-days col">Saturday</p>
-                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
-                </div>
-                <div id="cinema-hours-sunday" className="row">
-                  <p className="cinemaInfo-text cinemaInfo-days col">Sunday</p>
-                  <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+                <div id="cinema-hours" className="">
+                  <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Opening Hours</h6>
+                  <div id="cinema-hours-monday" className="row">
+                    <p className="cinemaInfo-text cinemaInfo-days col">Monday</p>
+                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Monday}</p>
+                  </div>
+                  <div id="cinema-hours-tuesday" className="row">
+                    <p className="cinemaInfo-text cinemaInfo-days col">Tuesday</p>
+                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Tuesday}</p>
+                  </div>
+                  <div id="cinema-hours-wednesday" className="row">
+                    <p className="cinemaInfo-text cinemaInfo-days col">Wednesday</p>
+                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Wednesday}</p>
+                  </div>
+                  <div id="cinema-hours-thursday" className="row">
+                    <p className="cinemaInfo-text cinemaInfo-days col">Thursday</p>
+                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Thursday}</p>
+                  </div>
+                  <div id="cinema-hours-friday" className="row">
+                    <p className="cinemaInfo-text cinemaInfo-days col">Friday</p>
+                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Friday}</p>
+                  </div>
+                  <div id="cinema-hours-saturday" className="row">
+                    <p className="cinemaInfo-text cinemaInfo-days col">Saturday</p>
+                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Saturday}</p>
+                  </div>
+                  <div id="cinema-hours-sunday" className="row">
+                    <p className="cinemaInfo-text cinemaInfo-days col">Sunday</p>
+                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Sunday}</p>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
 
         </div>
+      )
 
-      </div>
-    )
   }
 }
 
@@ -333,7 +335,6 @@ class SingleFilm extends Component {
         <h2 className="film-title text-uppercase text-center">{film.title}</h2>
         <h5 className="film-director text-center text-uppercase">Directed by <span className="font-weight-bold">{film.director}</span></h5>
         <div className="text-center">
-          <button type="button" name="button" className="btnFill text-uppercase">Watch Trailer</button>
           <button type="button" name="button" className="btnOutline text-uppercase">Read More Info</button>
         </div>
           <div className="filmScreenings">

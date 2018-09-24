@@ -27,6 +27,11 @@ app.get('/filmsNumber/:id', function(req,res){
     console.log(req.params);
 });
 
+app.get('/cinemasNumber/:id', function(req,res){
+    res.json(cinemaData[req.params.id]);
+    console.log(req.params);
+});
+
 // Here the server is being set to run at port 5000
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), function(){
