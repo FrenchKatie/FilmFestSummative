@@ -37,8 +37,7 @@ class App extends Component {
                 cinemaNumber={currentCinema}
               />
         }
-
-    }  else {
+    } else {
           page = <SingleFilm
             filmNumber={currentFilm}
           />
@@ -158,7 +157,122 @@ class SingleCinema extends Component {
     console.log('You are on single cinema');
     return (
       <div id="cinema">
-        <h1>The current cinema ID is - {this.props.cinemaNumber}</h1>
+
+        <div className="row">
+          <div id="cinemaInfo" className="col">
+            <div id="cinema-address">
+              <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Address</h6>
+              <p id="cinema-address-street" className="cinemaInfo-text">129 Imaginary Street</p>
+              <p id="cinema-address-suburb" className="cinemaInfo-text">Te Aro</p>
+              <p id="cinema-address-city" className="cinemaInfo-text">Wellington</p>
+            </div>
+            <div id="cinema-phone">
+              <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Phone</h6>
+              <p className="cinemaInfo-text">(04) 587 2653</p>
+            </div>
+            <div id="cinema-hours" className="">
+              <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Opening Hours</h6>
+              <div id="cinema-hours-monday" className="row">
+                <p className="cinemaInfo-text cinemaInfo-days col">Monday</p>
+                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+              </div>
+              <div id="cinema-hours-tuesday" className="row">
+                <p className="cinemaInfo-text cinemaInfo-days col">Tuesday</p>
+                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+              </div>
+              <div id="cinema-hours-wednesday" className="row">
+                <p className="cinemaInfo-text cinemaInfo-days col">Wednesday</p>
+                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+              </div>
+              <div id="cinema-hours-thursday" className="row">
+                <p className="cinemaInfo-text cinemaInfo-days col">Thursday</p>
+                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+              </div>
+              <div id="cinema-hours-friday" className="row">
+                <p className="cinemaInfo-text cinemaInfo-days col">Friday</p>
+                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+              </div>
+              <div id="cinema-hours-saturday" className="row">
+                <p className="cinemaInfo-text cinemaInfo-days col">Saturday</p>
+                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+              </div>
+              <div id="cinema-hours-sunday" className="row">
+                <p className="cinemaInfo-text cinemaInfo-days col">Sunday</p>
+                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="screenings">
+          <h3 className="text-uppercase text-center screeningsHeader">Screenings</h3>
+          <div className="screening-dates row">
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Sat</p>
+              <p className="date-number">18</p>
+            </div>
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Sun</p>
+              <p className="date-number">19</p>
+            </div>
+            <div className="date-active col text-center text-uppercase">
+              <p className="date-day">Mon</p>
+              <p className="date-number">20</p>
+            </div>
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Tue</p>
+              <p className="date-number">21</p>
+            </div>
+            <div className="date-inactive col text-center text-uppercase">
+              <p className="date-day">Wed</p>
+              <p className="date-number">22</p>
+            </div>
+          </div>
+          <div className="screening-timetable">
+
+              <div className="row film-screeningInfo">
+                <div className="film-timeTitleDirector col-7">
+                  <h6 className="text-uppercase font-weight-bold screeningText screening-time">11.00 am</h6>
+                  <h6 className="text-uppercase font-weight-bold screeningText">Blue My Mind</h6>
+                  <h6 className="screeningText">Lisa Bruhlmann</h6>
+                </div>
+                <div className="film-category col-5">
+                  <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
+                </div>
+              </div>
+              <div className="row film-screeningInfo">
+                <div className="film-timeTitleDirector col-7">
+                  <h6 className="text-uppercase font-weight-bold screeningText screening-time">11.00 am</h6>
+                  <h6 className="text-uppercase font-weight-bold screeningText">The Rider </h6>
+                  <h6 className="screeningText">Chloé Zhao</h6>
+                </div>
+                <div className="film-category col-5">
+                  <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
+                </div>
+              </div>
+              <div className="row film-screeningInfo">
+                <div className="film-timeTitleDirector col-7">
+                  <h6 className="text-uppercase font-weight-bold screeningText screening-time">11.00 am</h6>
+                  <h6 className="text-uppercase font-weight-bold screeningText">The Trial</h6>
+                  <h6 className="screeningText">Maria Augusta Ramos</h6>
+                </div>
+                <div className="film-category col-5">
+                  <h6 className="filmListItem-category text-center position-relative cat-newsAndFakeNews">News / Fake News</h6>
+                </div>
+              </div>
+              <div className="row film-screeningInfo">
+                <div className="film-timeTitleDirector col-7">
+                  <h6 className="text-uppercase font-weight-bold screeningText screening-time">11.00 am</h6>
+                  <h6 className="text-uppercase font-weight-bold screeningText">Yellow is Forbidden</h6>
+                  <h6 className="screeningText">Pietra Brettkelly</h6>
+                </div>
+                <div className="film-category col-5">
+                  <h6 className="filmListItem-category text-center position-relative cat-bigNights">Big Nights</h6>
+                </div>
+              </div>
+
+
+          </div>
+        </div>
       </div>
     )
   }
