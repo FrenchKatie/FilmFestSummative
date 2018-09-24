@@ -14,7 +14,12 @@
 		"keywords": ["Arctic", "Siberia", "documentry"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/ss/e8/g5/xr/Aga02%20KEY%20FOR%20WEB_crop-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Embassy", "Roxy", "Penthouse", "Light House"],
-		"screenings": [{"Thu":["08:00"]},{"Fri":["07:00"]},{"sat":["06:00"]}],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["6:00pm"],"wed":["6:00pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["7:00pm"],"sun":["3:00pm"]},
+										{"mon":["8:00pm"],"tue":["8:00pm"],"wed":["7:00pm"],"thu":["6:00pm"],"fri":["6:00pm"],"sat":["9:00pm"],"sun":["4:30pm"]},
+										{"mon":["5:00pm"],"tue":["5:00pm"],"wed":["5:00pm"],"thu":["7:30pm"],"fri":["7:00pm"],"sat":["6:30pm"],"sun":["3:00"]},
+										{"mon":["5:30pm"],"tue":["5:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["8:00pm"],"sat":["8:00pm"],"sun":["4:00"]}
+									],
 		"ageRating": "PG"
 	},
 	{
@@ -32,6 +37,9 @@
 		"keywords": ["crime", "thriller", ""],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/i0/02/jf/cr/E016C001_170316_R0AX.00272166%20V5%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Embassy"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["8:00pm"],"wed":["8:00pm"],"thu":["8:30pm"],"fri":["7:00pm"],"sat":["8:00pm"],"sun":["4:30pm"]}
+									],
 		"ageRating": "R13"
 	},
 	{
@@ -49,6 +57,11 @@
 		"keywords": ["wildlife ", "nature", "enchanting"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/35/lt/l3/f3/uralines%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Embassy", "Penthouse", "Light House"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["7:00pm"],"wed":["6:30pm"],"thu":["8:30pm"],"fri":["7:30pm"],"sat":["4:00pm"],"sun":["3:00pm"]},
+										{"mon":["4:00pm"],"tue":["6:00pm"],"wed":["5:30pm"],"thu":["6:30pm"],"fri":["7:30pm"],"sat":["2:30pm"],"sun":["2:00"]},
+										{"mon":["3:30pm"],"tue":["7:30pm"],"wed":["5:30pm"],"thu":["6:00pm"],"fri":["7:00pm"],"sat":["1:00pm"],"sun":["1:00"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -66,6 +79,9 @@
 		"keywords": ["social-realist drama", "mother", "refugee"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/53/ke/sv/by/AndBreatheNormally_04_WideScreen%20KEY_CROP%20LEFT%20CHARACTER%20OUT-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading"],
+		"screenings": [
+										{"mon":["3:00pm"],"tue":["4:00pm"],"wed":["3:00pm"],"thu":["8:00pm"],"fri":["6:00pm"],"sat":["7:00pm"],"sun":["4:00pm"]}
+									],
 		"ageRating": "M"
 	},
 	{
@@ -83,6 +99,9 @@
 		"keywords": ["film noir", "abuse", "narrative"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/kw/fg/ej/z3/Angels_01%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Embassy"],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["8:00pm"],"wed":["8:00pm"],"thu":["8:00pm"],"fri":["6:00pm"],"sat":["4:00pm"],"sun":["3:00pm"]}
+									],
 		"ageRating": "M"
 	},
 	{
@@ -100,6 +119,10 @@
 		"keywords": ["sexual abuse", "Centrepoint", "story"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/ps/12/3k/0w/ANGIE%20PANA5450%20copy%20HALF%20PG%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading", "Roxy"],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["6:30pm"],"wed":["8:00pm"],"thu":["7:00pm"],"fri":["5:00pm"],"sat":["4:00pm"],"sun":["4:00pm"]},
+										{"mon":["8:00pm"],"tue":["8:00pm"],"wed":["6:00pm"],"thu":["6:00pm"],"fri":["6:30pm"],"sat":["9:00pm"],"sun":["4:30pm"]}
+									],
 		"ageRating": "R16"
 	},
 	{
@@ -117,6 +140,10 @@
 		"keywords": ["religion", "Jehovah’s Witness", "tension"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/e3/qj/nf/fg/002981_28%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading","Embassy"],
+		"screenings": [
+										{"mon":["4:00pm"],"tue":["7:30pm"],"wed":["8:00pm"],"thu":["7:00pm"],"fri":["8:00pm"],"sat":["4:00pm"],"sun":["4:00pm"]},
+										{"mon":["6:00pm"],"tue":["6:00pm"],"wed":["6:00pm"],"thu":["6:00pm"],"fri":["8:00pm"],"sat":["4:00pm"],"sun":["3:30pm"]}
+									],
 		"ageRating": "PG"
 	},
 	{
@@ -134,6 +161,12 @@
 		"keywords": ["endurance thriller", "wilderness", "plane"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/8t/tt/tu/8w/ARCTIC_DSC8923%20%20%28c%29HELEN%20SLOAN%20SMPSP%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading", "Embassy", "Light House", "Roxy"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["2:30pm"],"wed":["5:00pm"],"thu":["7:00pm"],"fri":["5:00pm"],"sat":["4:00pm"],"sun":["5:30pm"]},
+										{"mon":["6:00pm"],"tue":["3:00pm"],"wed":["6:00pm"],"thu":["5:00pm"],"fri":["7:00pm"],"sat":["6:00pm"],"sun":["3:00pm"]},
+										{"mon":["7:30pm"],"tue":["7:30pm"],"wed":["6:30pm"],"thu":["8:00pm"],"fri":["4:00pm"],"sat":["8:00pm"],"sun":["2:00pm"]},
+										{"mon":["8:00pm"],"tue":["7:00pm"],"wed":["6:00pm"],"thu":["6:00pm"],"fri":["6:30pm"],"sat":["9:00pm"],"sun":["4:30pm"]}
+									],
 		"ageRating": "M"
 	},
 	{
@@ -151,6 +184,12 @@
 		"keywords": ["romance", "21st century China", "gangland"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/dn/sn/4b/6m/ashes07230044-r-c%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading","Embassy"],
+		"screenings": [
+										{"mon":["4:00pm"],"tue":["7:00pm"],"wed":["5:00pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["7:00pm"],"sun":["3:00pm"]},
+										{"mon":["8:00pm"],"tue":["7:00pm"],"wed":["6:30pm"],"thu":["6:30pm"],"fri":["5:00pm"],"sat":["9:00pm"],"sun":["4:30pm"]},
+										{"mon":["5:00pm"],"tue":["4:30pm"],"wed":["4:00pm"],"thu":["7:30pm"],"fri":["5:00pm"],"sat":["6:30pm"],"sun":["3:00"]},
+										{"mon":["3:30pm"],"tue":["3:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["8:00pm"],"sun":["5:00"]}
+									],
 		"ageRating": "R13"
 	},
 	{
@@ -168,6 +207,10 @@
 		"keywords": ["contemporary", "schoolgirl", "rebellion"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/m3/ob/8f/zx/Unknown-2%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading", "Embassy"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["6:00pm"],"wed":["6:00pm"],"thu":["7:00pm"],"fri":["5:00pm"],"sat":["7:00pm"],"sun":["4:00pm"]},
+										{"mon":["7:00pm"],"tue":["8:00pm"],"wed":["8:00pm"],"thu":["6:00pm"],"fri":["6:00pm"],"sat":["3:00pm"],"sun":["4:30pm"]}
+									],
 		"ageRating": "M"
 	},
 	{
@@ -185,6 +228,10 @@
 		"keywords": ["kidnapping", "thriller", "Lebanon"],
         "images": ["https://www.nziff.co.nz/assets/resized/sm/upload/08/m6/e0/jt/18243_Beirut_still1_RosamundPike__JonHamm_DeanNorris_bySifeEddineElAmine%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Embassy", "Light House"],
+		"screenings": [
+										{"mon":["8:00pm"],"tue":["4:00pm"],"wed":["6:30pm"],"thu":["7:00pm"],"fri":["7:30pm"],"sat":["5:00pm"],"sun":["4:00pm"]},
+										{"mon":["2:30pm"],"tue":["5:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["8:00pm"],"sat":["6:00pm"],"sun":["2:00"]}
+									],
 		"ageRating": "M"
 	},
 	{
@@ -202,6 +249,11 @@
 		"keywords": ["indigenous culture", "drug trade", "traditional"],
         "images": ["https://www.nziff.co.nz/assets/resized/sm/upload/o4/ty/tc/v1/PDV-MCG-6304-Full.Res%20NEW%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Embassy", "Light House", "Roxy"],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["6:30pm"],"wed":["6:00pm"],"thu":["7:00pm"],"fri":["7:00pm"],"sat":["2:00pm"],"sun":["3:00pm"]},
+										{"mon":["5:30pm"],"tue":["7:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["6:00pm"],"sat":["8:00pm"],"sun":["2:00"]},
+										{"mon":["8:00pm"],"tue":["8:00pm"],"wed":["8:00pm"],"thu":["6:00pm"],"fri":["6:00pm"],"sat":["7:00pm"],"sun":["3:30pm"]}
+									],
 		"ageRating": "M"
 	},
 	{
@@ -219,6 +271,9 @@
 		"keywords": ["Mining", "peaceful resistance", "tragedy"],
         "images": ["https://www.nziff.co.nz/assets/resized/sm/upload/qf/yz/x3/8f/HI%20RES%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Embassy"],
+		"screenings": [
+										{"mon":["2:00pm"],"tue":["2:00pm"],"wed":["8:00pm"],"thu":["8:00pm"],"fri":["6:30pm"],"sat":["6:00pm"],"sun":["5:00pm"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -253,6 +308,10 @@
 		"keywords": ["documentary", "medieval combat", "modern knights"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/ns/za/fp/47/Bludgeon%201%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading", "Roxy"],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["6:00pm"],"wed":["6:00pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["7:00pm"],"sun":["3:00pm"]},
+										{"mon":["8:00pm"],"tue":["8:00pm"],"wed":["6:00pm"],"thu":["6:00pm"],"fri":["6:00pm"],"sat":["9:00pm"],"sun":["4:30pm"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -270,6 +329,10 @@
 		"keywords": ["youth", "poignant", "coming-of-age"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/cb/zx/oh/sv/03-bluemymind%20KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading","Embassy"],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["7:00pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["4:00pm"],"sun":["3:00pm"]},
+										{"mon":["8:00pm"],"tue":["5:00pm"],"wed":["6:00pm"],"thu":["6:00pm"],"fri":["6:00pm"],"sat":["9:00pm"],"sun":["7:30pm"]}
+									],
 		"ageRating": "R16"
 	},
 	{
@@ -287,6 +350,10 @@
 		"keywords": ["documentary", "portrait", "Hollywood"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/qj/ur/9k/sz/TFF17_Hedy_Ziegfeld_Everett%20KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading","Penthouse"],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["7:00pm"],"wed":["7:00pm"],"thu":["6:00pm"],"fri":["4:00pm"],"sat":["9:00pm"],"sun":["4:30pm"]},
+										{"mon":["7:00pm"],"tue":["6:00pm"],"wed":["5:00pm"],"thu":["8:30pm"],"fri":["7:00pm"],"sat":["4:30pm"],"sun":["3:00"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -304,6 +371,9 @@
 		"keywords": ["documentary", "censorship", "bureaucratic"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/xw/bf/ew/6r/censored4%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["6:00pm"],"wed":["6:00pm"],"thu":["8:00pm"],"fri":["4:00pm"],"sat":["7:00pm"],"sun":["3:00pm"]}
+									],
 		"ageRating": "R16"
 	},
 	{
@@ -321,6 +391,11 @@
 		"keywords": ["against-the-odds resilience", "social-realist", "drama"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/vn/ks/q2/xg/MG_8196-CAPHARNA%C3%9CM-Copyright-Fares-Sokhon-pour-cover-site-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Embassy","Light House", "Penthouse"],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["3:00pm"],"wed":["6:00pm"],"thu":["3:30pm"],"fri":["5:00pm"],"sat":["8:00pm"],"sun":["3:00pm"]},
+										{"mon":["5:00pm"],"tue":["6:00pm"],"wed":["5:00pm"],"thu":["2:30pm"],"fri":["4:00pm"],"sat":["6:30pm"],"sun":["5:00"]},
+										{"mon":["5:30pm"],"tue":["5:30pm"],"wed":["4:30pm"],"thu":["8:00pm"],"fri":["8:00pm"],"sat":["6:00pm"],"sun":["4:00"]}
+									],
 		"ageRating": "M"
 	},
 	{
@@ -338,6 +413,11 @@
 		"keywords": ["documentary", "moving", "equality"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/ji/mo/8q/sh/Celia%201%20photo%20credit%20Taranaki%20Daily%20News-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading","Embassy","Penthouse"],
+		"screenings": [
+										{"mon":["2:00pm"],"tue":["3:00pm"],"wed":["6:00pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["7:00pm"],"sun":["3:00pm"]},
+										{"mon":["8:00pm"],"tue":["8:00pm"],"wed":["6:00pm"],"thu":["4:00pm"],"fri":["6:00pm"],"sat":["9:00pm"],"sun":["4:30pm"]},
+										{"mon":["5:00pm"],"tue":["6:00pm"],"wed":["2:00pm"],"thu":["7:30pm"],"fri":["4:00pm"],"sat":["6:30pm"],"sun":["3:00"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -355,6 +435,9 @@
 		"keywords": ["poet", "music", "Mexican"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/nf/tq/u8/26/chulas-fronterasCaptionLydia%20Mendoza%20KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Embassy"],
+		"screenings": [
+										{"mon":["3:00pm"],"tue":["3:00pm"],"wed":["5:00pm"],"thu":["7:00pm"],"fri":["3:00pm"],"sat":["8:00pm"],"sun":["5:00pm"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -372,6 +455,10 @@
 		"keywords": ["love story", "lesbian", "western"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/pk/49/tb/rp/29139id_245%20KEY-RGB%20crop-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Embassy","Penthouse"],
+		"screenings": [
+										{"mon":["3:00pm"],"tue":["5:00pm"],"wed":["6:00pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["6:30pm"],"sun":["3:00pm"]},
+										{"mon":["3:00pm"],"tue":["5:30pm"],"wed":["5:00pm"],"thu":["8:30pm"],"fri":["7:30pm"],"sat":["6:30pm"],"sun":["3:00"]}
+									],
 		"ageRating": "M"
 	},
 	{
@@ -389,6 +476,10 @@
 		"keywords": ["documentary", "corporate greed", "environmental"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/9k/1w/ef/eg/18183_DevilWeKnow_still1_NA__byNA%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading","Lighthouse"],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["6:00pm"],"wed":["6:00pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["7:00pm"],"sun":["7:00pm"]},
+										{"mon":["5:30pm"],"tue":["5:30pm"],"wed":["3:30pm"],"thu":["8:30pm"],"fri":["8:00pm"],"sat":["8:00pm"],"sun":["5:00"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -406,6 +497,10 @@
 		"keywords": ["media", "nationalism", ""],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/nk/yh/ks/b0/2_Diamantino_00210960%20KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading","Embassy"],
+		"screenings": [
+										{"mon":["4:30pm"],"tue":["5:30pm"],"wed":["6:00pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["7:00pm"],"sun":["3:00pm"]},
+										{"mon":["5:00pm"],"tue":["5:00pm"],"wed":["5:00pm"],"thu":["7:30pm"],"fri":["7:00pm"],"sat":["6:30pm"],"sun":["3:00"]}
+									],
 		"ageRating": "M"
 	},
 	{
@@ -423,6 +518,10 @@
 		"keywords": ["portrait", "flamboyant", "murders"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/29/v0/oa/3z/EL%20ANGEL_KEY%20STILL-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading","Roxy"],
+		"screenings": [
+										{"mon":["8:00pm"],"tue":["8:00pm"],"wed":["6:00pm"],"thu":["6:00pm"],"fri":["6:00pm"],"sat":["9:00pm"],"sun":["4:30pm"]},
+										{"mon":["5:00pm"],"tue":["5:00pm"],"wed":["5:00pm"],"thu":["7:30pm"],"fri":["7:00pm"],"sat":["6:30pm"],"sun":["3:00"]}
+									],
 		"ageRating": "R16"
 	},
 	{
@@ -440,6 +539,10 @@
 		"keywords": ["WWII", "documentary", "moving"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/oo/nz/6y/m8/02-eldorado%20KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading","Embassy"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["5:00pm"],"wed":["5:00pm"],"thu":["7:30pm"],"fri":["7:00pm"],"sat":["6:30pm"],"sun":["3:00"]},
+										{"mon":["5:30pm"],"tue":["5:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["8:00pm"],"sat":["8:00pm"],"sun":["4:00"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -457,6 +560,10 @@
 		"keywords": ["bully", "epic", "event-packed"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/jq/rf/zg/i1/still1%20KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading","Embassy"],
+		"screenings": [
+										{"mon":["8:00pm"],"tue":["7:00pm"],"wed":["7:00pm"],"thu":["7:30pm"],"fri":["6:00pm"],"sat":["5:00pm"],"sun":["7:00pm"]},
+										{"mon":["5:30pm"],"tue":["5:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["8:00pm"],"sat":["8:00pm"],"sun":["4:00"]}
+									],
 		"ageRating": "R16"
 	},
 	{
@@ -474,6 +581,9 @@
 		"keywords": ["fear", "folktales", "creepy"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/lu/1v/kp/eu/6.%20field-guide-to-evil%20Poland_Agnieszka%20Smoczynska%20HIRES%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["5:00pm"],"wed":["5:00pm"],"thu":["7:30pm"],"fri":["7:00pm"],"sat":["6:30pm"],"sun":["3:00"]}
+									],
 		"ageRating": "R16"
 	},
 	{
@@ -491,6 +601,9 @@
 		"keywords": ["filmmaking", "fascinating", "insights"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/eg/z1/74/aa/Filmworker%20%234%20Kubrick%20and%20Leon%20Vitali%20%27The%20Shining%27%20copy%20photo%20courtesy%20Leon%20Vitali%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading"],
+		"screenings": [
+										{"mon":["7:00pm"],"tue":["7:00pm"],"wed":["7:30pm"],"thu":["6:30pm"],"fri":["5:00pm"],"sat":["9:00pm"],"sun":["4:30pm"]}
+									],
 		"ageRating": "M"
 	},
 	{
@@ -508,6 +621,10 @@
 		"keywords": ["priest", "thriller", "environmental"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/1n/77/9u/28/First_Reformation_D19_0023%20TEMP%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading", "Embassy"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["5:00pm"],"wed":["5:00pm"],"thu":["7:30pm"],"fri":["7:00pm"],"sat":["6:30pm"],"sun":["3:00"]},
+										{"mon":["5:30pm"],"tue":["5:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["8:00pm"],"sat":["8:00pm"],"sun":["4:00"]}
+									],
 		"ageRating": "R16"
 	},
 	{
@@ -525,6 +642,9 @@
 		"keywords": ["photography", "biography", "WWII"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/4v/0y/rg/bz/Still-1-KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Embassy"],
+		"screenings": [
+										{"mon":["3:00pm"],"tue":["4:30pm"],"wed":["6:00pm"],"thu":["8:00pm"],"fri":["6:00pm"],"sat":["6:30pm"],"sun":["3:00pm"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -542,6 +662,11 @@
 		"keywords": ["teenager", "transgender", "ballet"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/9d/cp/qh/eu/GIRL_Photo_1%E2%88%8FMenuet%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Embassy","Light House","Penthouse"],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["6:00pm"],"wed":["6:00pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["7:00pm"],"sun":["3:00pm"]},
+										{"mon":["5:00pm"],"tue":["5:00pm"],"wed":["5:00pm"],"thu":["7:30pm"],"fri":["7:00pm"],"sat":["6:30pm"],"sun":["3:00"]},
+										{"mon":["4:30pm"],"tue":["2:30pm"],"wed":["2:30pm"],"thu":["7:00pm"],"fri":["7:00pm"],"sat":["6:00pm"],"sun":["5:00"]}
+									],
 		"ageRating": "R16"
 	},
 	{
@@ -559,6 +684,9 @@
 		"keywords": ["love", "fairy tale", "class"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/ix/0j/xz/zm/GM06_by_Rui_Pocas%20KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading"],
+		"screenings": [
+										{"mon":["7:30pm"],"tue":["5:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["6:00pm"],"sat":["6:00pm"],"sun":["4:30"]}
+									],
 		"ageRating": "R16"
 	},
 	{
@@ -576,6 +704,10 @@
 		"keywords": ["supernatural", "folk tale", "social realism"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/d0/x7/63/ci/HappyAsLazzaro-Still1-actorAdrianoTardiolo%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Embassy","Penthouse"],
+		"screenings": [
+										{"mon":["4:00pm"],"tue":["3:00pm"],"wed":["5:00pm"],"thu":["5:00pm"],"fri":["6:00pm"],"sat":["5:00pm"],"sun":["4:00pm"]},
+										{"mon":["3:30pm"],"tue":["4:30pm"],"wed":["3:30pm"],"thu":["4:30pm"],"fri":["5:00pm"],"sat":["6:00pm"],"sun":["4:00"]}
+									],
 		"ageRating": "PG"
 	},
 	{
@@ -593,6 +725,10 @@
 		"keywords": ["portrait", "crisis", "race"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/4w/7h/ds/xw/37%20KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading","Embassy"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["4:30pm"],"wed":["4:00pm"],"thu":["5:30pm"],"fri":["5:30pm"],"sat":["6:30pm"],"sun":["3:00"]},
+										{"mon":["3:30pm"],"tue":["3:30pm"],"wed":["6:30pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["8:00pm"],"sun":["5:00"]}
+									],
 		"ageRating": "M"
 	},
 	{
@@ -610,6 +746,10 @@
 		"keywords": ["ballet", "contemporary", "Māori"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/m8/pa/92/ez/Heart%20Dancers%20for%20Kailey-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Embassy","Penthouse"],
+		"screenings": [
+										{"mon":["4:00pm"],"tue":["5:00pm"],"wed":["6:00pm"],"thu":["7:30pm"],"fri":["7:00pm"],"sat":["7:00pm"],"sun":["3:00pm"]},
+										{"mon":["3:30pm"],"tue":["5:30pm"],"wed":["7:30pm"],"thu":["7:00pm"],"fri":["8:00pm"],"sat":["8:00pm"],"sun":["4:00"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -627,6 +767,11 @@
 		"keywords": ["remembrance", "ballet", "depression"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/g7/ut/hj/q5/Christie_Jenkins1-0014%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading","Light House","Penthouse"],
+		"screenings": [
+										{"mon":["5:30pm"],"tue":["4:00pm"],"wed":["6:00pm"],"thu":["5:00pm"],"fri":["2:00pm"],"sat":["3:00pm"],"sun":["3:30pm"]},
+										{"mon":["7:00pm"],"tue":["5:00pm"],"wed":["5:00pm"],"thu":["6:30pm"],"fri":["7:00pm"],"sat":["4:30pm"],"sun":["3:00"]},
+										{"mon":["5:30pm"],"tue":["5:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["8:00pm"],"sat":["8:00pm"],"sun":["4:00"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -644,6 +789,10 @@
 		"keywords": ["documentary", "rock band", "tragic"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/8m/fj/jv/o7/LynyrdSkynyrd_1977_DavidAlexander_2%20HALF%20PG%20KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading","Light House"],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["5:30pm"],"wed":["6:00pm"],"thu":["7:00pm"],"fri":["7:00pm"],"sat":["7:00pm"],"sun":["5:00pm"]},
+										{"mon":["8:00pm"],"tue":["6:00pm"],"wed":["6:00pm"],"thu":["6:30pm"],"fri":["6:00pm"],"sat":["9:00pm"],"sun":["6:30pm"]}
+									],
 		"ageRating": "E"
 	},
 	{
@@ -661,6 +810,9 @@
 		"keywords": ["essay film", "intellectual", "melancholy"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/up/8l/vh/cy/imagebook2%20KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["4:30pm"],"wed":["4:00pm"],"thu":["7:30pm"],"fri":["5:00pm"],"sat":["6:30pm"],"sun":["3:00"]}
+									],
 		"ageRating": "M"
 	},
     {
@@ -678,6 +830,9 @@
 		"keywords": ["career", "Baz Luhrmann", "film making"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/1c/ae/qe/tc/Jill-Bilcock-KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading"],
+		"screenings": [
+										{"mon":["7:30pm"],"tue":["4:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["8:00pm"],"sun":["5:00"]}
+									],
 		"ageRating": "M"
 	},
     {
@@ -695,6 +850,10 @@
 		"keywords": ["Afghan", "redemption", "drama"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/sj/f8/2j/wq/Jirga_A_SET_009%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Reading","Roxy"],
+		"screenings": [
+										{"mon":["6:00pm"],"tue":["4:30pm"],"wed":["7:00pm"],"thu":["7:30pm"],"fri":["8:00pm"],"sat":["6:30pm"],"sun":["5:00"]},
+										{"mon":["6:30pm"],"tue":["3:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["6:00pm"],"sat":["8:00pm"],"sun":["5:00"]}
+									],
 		"ageRating": "M"
 	},
     {
@@ -712,6 +871,9 @@
 		"keywords": ["love story", "rom-com", "pop culture"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/1w/9f/w7/ce/Rose-Byrne-and-Ethan-Hawke-in-JULIET-NAKED-Photo-credit-Alex-Bailey-Courtesy-of-Lionsgate-and-Roadside-Attractions%20KEY-2000-2000-1125-1125-crop-fill.jpg"],
 		"venue": ["Embassy"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["4:30pm"],"wed":["5:00pm"],"thu":["7:30pm"],"fri":["5:30pm"],"sat":["6:30pm"],"sun":["3:00"]}
+									],
 		"ageRating": "M"
 	},
     {
@@ -729,6 +891,10 @@
 		"keywords": ["funny", "romcom", "transformative"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/1c/eh/sq/ti/KEEP%20THE%20CHANGE_%5BCOURTESY%20OF%20KEEP%20THE%20CHANGE%5D_1%20KEY%20FOR%20WEB-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading","Penthouse"],
+		"screenings": [
+										{"mon":["8:00pm"],"tue":["7:00pm"],"wed":["8:30pm"],"thu":["4:30pm"],"fri":["5:00pm"],"sat":["9:00pm"],"sun":["4:30pm"]},
+										{"mon":["6:00pm"],"tue":["7:30pm"],"wed":["8:00pm"],"thu":["7:30pm"],"fri":["5:00pm"],"sat":["6:30pm"],"sun":["3:00"]}
+									],
 		"ageRating": "M"
 	},
     {
@@ -746,6 +912,10 @@
 		"keywords": ["contemporary", "architect", "profile"],
 		"images": ["https://www.nziff.co.nz/assets/resized/sm/upload/7x/jn/kv/4a/Kevin-Roche-The-Quiet-Architect_5-1%20KEY-800-800-450-450-crop-fill.jpg"],
 		"venue": ["Reading","Penhouse"],
+		"screenings": [
+										{"mon":["5:00pm"],"tue":["4:30pm"],"wed":["4:00pm"],"thu":["7:30pm"],"fri":["5:00pm"],"sat":["6:30pm"],"sun":["3:00"]},
+										{"mon":["3:30pm"],"tue":["3:30pm"],"wed":["7:30pm"],"thu":["8:00pm"],"fri":["7:00pm"],"sat":["8:00pm"],"sun":["5:00"]}
+									],
 		"ageRating": "E"
 	}
 ]

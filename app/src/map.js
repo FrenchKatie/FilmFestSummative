@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-
+import './index.css';
 export class MapContainer extends Component {
 
   constructor(props){
@@ -22,8 +22,8 @@ export class MapContainer extends Component {
        selectedPlace: props,
        showingInfoWindow: true
      });
-   }
-
+     // onInfoWindowClick();
+   };
 
    onInfoWindowClose = () =>
      this.setState({
@@ -31,7 +31,14 @@ export class MapContainer extends Component {
        showingInfoWindow: false
      });
 
-  onMapClicked = () => {
+     onInfoWindowClick = () => {
+       if (this.state.showingInfoWindow){
+         console.log('clicked!');
+       }
+     };
+
+
+   onMapClicked = () => {
      if (this.state.showingInfoWindow)
        this.setState({
          activeMarker: null,

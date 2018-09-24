@@ -8,7 +8,9 @@ class App extends Component {
     super(props);
     this.state = {
       currentPage: 'allCinemas',
-      currentFilm: null
+      currentFilm: null,
+      cinemaTab: 'active',
+      filmTab: 'inactive'
     }
 
     this.changePage = this.changePage.bind(this);
@@ -21,23 +23,30 @@ class App extends Component {
     var currentPage = this.state.currentPage;
     var currentFilm = this.state.currentFilm;
     var currentCinema = this.state.currentCinema; //cinema that user has clicked on
-    let page; //what page you are on
 
+    let page;
+
+    {/* When currentFilm is set a valid value, it will change to the single film page */}
     if(this.state.currentFilm === null){ // if there is no current film
         if(currentPage === 'allCinemas'){
             page = <AllCinemas
               sendCinemaNumber={this.handleSetCinemaNumber} //sends the getCinemaNumber (???) to the handle function to set it
             />
+            this.state.cinemaTab = 'active';
+            this.state.filmTab = 'inactive';
         }else if(currentPage === 'allFilms'){
             page = <AllFilms
               setFilmNumber={this.handleSetFilmNumber}
             />
+            this.state.cinemaTab = 'inactive';
+            this.state.filmTab = 'active';
         }else if (currentPage === 'singleCinema') {
               page = <SingleCinema
                 cinemaNumber={currentCinema}
               />
         }
-    } else {
+
+    }  else {
           page = <SingleFilm
             filmNumber={currentFilm}
           />
@@ -48,8 +57,8 @@ class App extends Component {
           <header>
 
             <div className="row text-center">
-              <div className="inactive col headerText text-uppercase" onClick={this.changePage.bind(this, 'allCinemas')}>Cinemas</div>
-              <div className="active col headerText text-uppercase" onClick={this.changePage.bind(this, 'allFilms')}>Films</div>
+              <div className={`col headerText text-uppercase ${this.state.cinemaTab}`} onClick={this.changePage.bind(this, 'allCinemas')}>Cinemas</div>
+              <div className={`col headerText text-uppercase  ${this.state.filmTab}`} onClick={this.changePage.bind(this, 'allFilms')}>Films</div>
             </div>
           </header>
           <div>
@@ -62,11 +71,14 @@ class App extends Component {
 
   changePage(pageNumber){
     this.setState({
-      currentPage: pageNumber
+      currentPage: pageNumber,
+      currentFilm: null
     });
   }
 
   handleSetFilmNumber(itemID){
+    {/* this function is setting the current film to the number that was clicked*/}
+    {/* see line 25*/}
     this.setState({
       currentFilm: itemID
     });
@@ -100,14 +112,12 @@ class AllCinemas extends Component {
 
     componentDidMount() {
       var apiURL = "http://" + process.env.REACT_APP_API_URL + ":5000/cinemas";
-      console.log(apiURL);
       // fetch("http://192.168.33.10:5000/cinemas")
       // fetch("http://localhost:5000/cinemas")
       fetch(apiURL)
         .then(res => res.json())
         .then(
           (result) => {
-            console.log(result);
             this.setState({
               items: result
             });
@@ -157,122 +167,7 @@ class SingleCinema extends Component {
     console.log('You are on single cinema');
     return (
       <div id="cinema">
-
-        <div className="row">
-          <div id="cinemaInfo" className="col">
-            <div id="cinema-address">
-              <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Address</h6>
-              <p id="cinema-address-street" className="cinemaInfo-text">129 Imaginary Street</p>
-              <p id="cinema-address-suburb" className="cinemaInfo-text">Te Aro</p>
-              <p id="cinema-address-city" className="cinemaInfo-text">Wellington</p>
-            </div>
-            <div id="cinema-phone">
-              <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Phone</h6>
-              <p className="cinemaInfo-text">(04) 587 2653</p>
-            </div>
-            <div id="cinema-hours" className="">
-              <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Opening Hours</h6>
-              <div id="cinema-hours-monday" className="row">
-                <p className="cinemaInfo-text cinemaInfo-days col">Monday</p>
-                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
-              </div>
-              <div id="cinema-hours-tuesday" className="row">
-                <p className="cinemaInfo-text cinemaInfo-days col">Tuesday</p>
-                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
-              </div>
-              <div id="cinema-hours-wednesday" className="row">
-                <p className="cinemaInfo-text cinemaInfo-days col">Wednesday</p>
-                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
-              </div>
-              <div id="cinema-hours-thursday" className="row">
-                <p className="cinemaInfo-text cinemaInfo-days col">Thursday</p>
-                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
-              </div>
-              <div id="cinema-hours-friday" className="row">
-                <p className="cinemaInfo-text cinemaInfo-days col">Friday</p>
-                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
-              </div>
-              <div id="cinema-hours-saturday" className="row">
-                <p className="cinemaInfo-text cinemaInfo-days col">Saturday</p>
-                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
-              </div>
-              <div id="cinema-hours-sunday" className="row">
-                <p className="cinemaInfo-text cinemaInfo-days col">Sunday</p>
-                <p className="cinemaInfo-text cinemaInfo-times col">10am - 11am</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="screenings">
-          <h3 className="text-uppercase text-center screeningsHeader">Screenings</h3>
-          <div className="screening-dates row">
-            <div className="date-inactive col text-center text-uppercase">
-              <p className="date-day">Sat</p>
-              <p className="date-number">18</p>
-            </div>
-            <div className="date-inactive col text-center text-uppercase">
-              <p className="date-day">Sun</p>
-              <p className="date-number">19</p>
-            </div>
-            <div className="date-active col text-center text-uppercase">
-              <p className="date-day">Mon</p>
-              <p className="date-number">20</p>
-            </div>
-            <div className="date-inactive col text-center text-uppercase">
-              <p className="date-day">Tue</p>
-              <p className="date-number">21</p>
-            </div>
-            <div className="date-inactive col text-center text-uppercase">
-              <p className="date-day">Wed</p>
-              <p className="date-number">22</p>
-            </div>
-          </div>
-          <div className="screening-timetable">
-
-              <div className="row film-screeningInfo">
-                <div className="film-timeTitleDirector col-7">
-                  <h6 className="text-uppercase font-weight-bold screeningText screening-time">11.00 am</h6>
-                  <h6 className="text-uppercase font-weight-bold screeningText">Blue My Mind</h6>
-                  <h6 className="screeningText">Lisa Bruhlmann</h6>
-                </div>
-                <div className="film-category col-5">
-                  <h6 className="filmListItem-category text-center position-relative cat-fresh">Fresh</h6>
-                </div>
-              </div>
-              <div className="row film-screeningInfo">
-                <div className="film-timeTitleDirector col-7">
-                  <h6 className="text-uppercase font-weight-bold screeningText screening-time">11.00 am</h6>
-                  <h6 className="text-uppercase font-weight-bold screeningText">The Rider </h6>
-                  <h6 className="screeningText">Chloé Zhao</h6>
-                </div>
-                <div className="film-category col-5">
-                  <h6 className="filmListItem-category text-center position-relative cat-world">World</h6>
-                </div>
-              </div>
-              <div className="row film-screeningInfo">
-                <div className="film-timeTitleDirector col-7">
-                  <h6 className="text-uppercase font-weight-bold screeningText screening-time">11.00 am</h6>
-                  <h6 className="text-uppercase font-weight-bold screeningText">The Trial</h6>
-                  <h6 className="screeningText">Maria Augusta Ramos</h6>
-                </div>
-                <div className="film-category col-5">
-                  <h6 className="filmListItem-category text-center position-relative cat-newsAndFakeNews">News / Fake News</h6>
-                </div>
-              </div>
-              <div className="row film-screeningInfo">
-                <div className="film-timeTitleDirector col-7">
-                  <h6 className="text-uppercase font-weight-bold screeningText screening-time">11.00 am</h6>
-                  <h6 className="text-uppercase font-weight-bold screeningText">Yellow is Forbidden</h6>
-                  <h6 className="screeningText">Pietra Brettkelly</h6>
-                </div>
-                <div className="film-category col-5">
-                  <h6 className="filmListItem-category text-center position-relative cat-bigNights">Big Nights</h6>
-                </div>
-              </div>
-
-
-          </div>
-        </div>
+        <h1>The current cinema ID is - {this.props.cinemaNumber}</h1>
       </div>
     )
   }
@@ -282,15 +177,259 @@ class SingleCinema extends Component {
 
 class SingleFilm extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      currentPage: 'SingleFilm',
+      error: null,
+      isLoaded: false,
+      film: {},
+      venues: [],
+      screenings: [],
+      currentFilm: this.props.filmNumber,
+      cinemaInfo: [],
+      activeTab: null,
+      dateTabs: document.getElementsByClassName('date-tab')
+
+    }
+
+  }
+
+  componentDidMount() {
+    fetch("http://" + process.env.REACT_APP_API_URL + ":5000/filmsNumber/"+this.props.filmNumber)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            film: result,
+            venues: result.venue,
+            screenings: result.screenings,
+            activeTab: 'mon'
+          });
+        },
+        (error) => {
+          this.setState({
+            error
+          });
+        }
+      );
+
+      fetch("http://" + process.env.REACT_APP_API_URL + ":5000/cinemas/")
+        .then(res => res.json())
+        .then(
+          (cinemaResult) => {
+            this.setState({
+              cinemaInfo: cinemaResult
+            });
+          },
+          (cinemaError) => {
+            this.setState({
+              cinemaError
+            });
+          }
+        )
+  }
 
   render(){
-    return (
-      <div id="film">
-      <h1>The current film ID is - {this.props.filmNumber}</h1>
 
-      </div>
-    )
+    const error = this.state.error;
+    const currentPage = this.state.currentPage;
+    var film = this.state.film;
+    var venues = this.state.venues;
+    var screenings = this.state.screenings;
+    var activeTab = this.state.activeTab;
+
+    var dateTabs = this.state.dateTabs;
+    if (dateTabs.length == 7){
+      for (var i = 0; i < dateTabs.length; i++) {
+        if(activeTab == dateTabs[i].id){
+          dateTabs[i].classList.add('date-active');
+          dateTabs[i].classList.remove('date-inactive');
+        } else {
+          dateTabs[i].classList.remove('date-active');
+          dateTabs[i].classList.add('date-inactive');
+        }
+      }
+    }
+
+    // SCREENINGS WORKING
+    console.log(this.state.screenings);
+
+    if (error){
+      return <div>Error: {error.message}</div>;
+    } else if (currentPage === 'SingleFilm'){
+
+      return (
+        <div className="main">
+        <div className="film-image" style={{backgroundImage: `url(${film.images})`}}>
+
+        </div>
+        <div className="film-blurb text-center">
+          <p>{film.blurb}</p>
+        </div>
+        <h2 className="film-title text-uppercase text-center">{film.title}</h2>
+        <h5 className="film-director text-center text-uppercase">Directed by <span className="font-weight-bold">{film.director}</span></h5>
+        <div className="text-center">
+          <button type="button" name="button" className="btnFill text-uppercase">Watch Trailer</button>
+          <button type="button" name="button" className="btnOutline text-uppercase">Read More Info</button>
+        </div>
+          <div className="filmScreenings">
+            <h3 className="text-uppercase text-center screeningsHeader">Screenings</h3>
+            <div className="scroll-ctnr">
+              <div className="screening-dates row">
+                <div className="date-tab date-inactive col text-center text-uppercase" id='sat' onClick={this.selectDate.bind(this, 'sat')}>
+                  <p className="date-day">Sat</p>
+                  <p className="date-number">18</p>
+                </div>
+                <div className="date-tab date-inactive col text-center text-uppercase" id='sun' onClick={this.selectDate.bind(this, 'sun')}>
+                  <p className="date-day">Sun</p>
+                  <p className="date-number">19</p>
+                </div>
+                <div className="date-tab date-active col text-center text-uppercase" id='mon' onClick={this.selectDate.bind(this, 'mon')}>
+                  <p className="date-day">Mon</p>
+                  <p className="date-number">20</p>
+                </div>
+                <div className="date-tab date-inactive col text-center text-uppercase" id='tue' onClick={this.selectDate.bind(this, 'tue')}>
+                  <p className="date-day">Tue</p>
+                  <p className="date-number">21</p>
+                </div>
+                <div className="date-tab date-inactive col text-center text-uppercase" id='wed' onClick={this.selectDate.bind(this, 'wed')}>
+                  <p className="date-day">Wed</p>
+                  <p className="date-number">22</p>
+                </div>
+                <div className="date-tab date-inactive col text-center text-uppercase" id='thu' onClick={this.selectDate.bind(this, 'thu')}>
+                  <p className="date-day">Thur</p>
+                  <p className="date-number">23</p>
+                </div>
+                <div className="date-tab date-inactive col text-center text-uppercase" id='fri' onClick={this.selectDate.bind(this, 'fri')}>
+                  <p className="date-day">Fri</p>
+                  <p className="date-number">24</p>
+                </div>
+              </div>
+            </div>
+
+          {venues.map((venue, index) => {
+            var times = screenings[index];
+            // this.state.screenings.[{venue}].mon[0]
+            if (activeTab === 'mon'){
+              return (
+                <div key={venue} className="screening-timetable">
+                    <div className="row film-screeningInfo">
+                      <div className="film-time col">
+                        <h6 className="text-uppercase font-weight-bold">{times.mon}</h6>
+                      </div>
+                      <div className="film-cinema col">
+                        <h6 className="text-uppercase text-right">{venue}</h6>
+                      </div>
+                    </div>
+              </div>
+              );
+            } else if (activeTab === 'tue'){
+              return (
+                <div key={venue} className="screening-timetable">
+                    <div className="row film-screeningInfo">
+                      <div className="film-time col">
+                        <h6 className="text-uppercase font-weight-bold">{times.tue}</h6>
+                      </div>
+                      <div className="film-cinema col">
+                        <h6 className="text-uppercase text-right">{venue}</h6>
+                      </div>
+                    </div>
+              </div>
+              );
+            } else if (activeTab === 'wed'){
+              return (
+                <div key={venue} className="screening-timetable">
+                    <div className="row film-screeningInfo">
+                      <div className="film-time col">
+                        <h6 className="text-uppercase font-weight-bold">{times.wed}</h6>
+                      </div>
+                      <div className="film-cinema col">
+                        <h6 className="text-uppercase text-right">{venue}</h6>
+                      </div>
+                    </div>
+              </div>
+              );
+            } else if (activeTab === 'thu'){
+              return (
+                <div key={venue} className="screening-timetable">
+                    <div className="row film-screeningInfo">
+                      <div className="film-time col">
+                        <h6 className="text-uppercase font-weight-bold">{times.thu}</h6>
+                      </div>
+                      <div className="film-cinema col">
+                        <h6 className="text-uppercase text-right">{venue}</h6>
+                      </div>
+                    </div>
+              </div>
+              );
+            } else if (activeTab === 'fri'){
+              return (
+                <div key={venue} className="screening-timetable">
+                    <div className="row film-screeningInfo">
+                      <div className="film-time col">
+                        <h6 className="text-uppercase font-weight-bold">{times.fri}</h6>
+                      </div>
+                      <div className="film-cinema col">
+                        <h6 className="text-uppercase text-right">{venue}</h6>
+                      </div>
+                    </div>
+              </div>
+              );
+            } else if (activeTab === 'sat'){
+              return (
+                <div key={venue} className="screening-timetable">
+                    <div className="row film-screeningInfo">
+                      <div className="film-time col">
+                        <h6 className="text-uppercase font-weight-bold">{times.sat}</h6>
+                      </div>
+                      <div className="film-cinema col">
+                        <h6 className="text-uppercase text-right">{venue}</h6>
+                      </div>
+                    </div>
+              </div>
+              );
+            } else if (activeTab === 'sun'){
+              return (
+                <div key={venue} className="screening-timetable">
+                    <div className="row film-screeningInfo">
+                      <div className="film-time col">
+                        <h6 className="text-uppercase font-weight-bold">{times.sun}</h6>
+                      </div>
+                      <div className="film-cinema col">
+                        <h6 className="text-uppercase text-right">{venue}</h6>
+                      </div>
+                    </div>
+              </div>
+              );
+            }
+
+        })}
+
+          </div>
+        </div>
+      )
+    }
+
+
   }
+  changePage(){
+    this.props.setFilmNumber(null);
+  }
+
+  selectDate(day){
+
+    var screenings = this.state.screenings;
+    var activeTab = this.state.activeTab;
+
+    this.setState({
+      activeTab: day
+    });
+
+  }
+
+
+
 }
 
 
@@ -310,7 +449,6 @@ class AllFilms extends Component {
 
   componentDidMount() {
     var apiURL = "http://" + process.env.REACT_APP_API_URL + ":5000/films";
-    console.log(apiURL);
     // fetch("http://192.168.33.10:5000/films")
     // fetch("http://localhost:5000/films")
     fetch(apiURL)
@@ -338,9 +476,10 @@ class AllFilms extends Component {
         return <div>Error: {error.message}</div>;
       } else if (currentPage === 'allFilms'){
         return (
-          <div id="filmList">
+          <div className="main">
             {items.map(item => (
               <div key={item.title}>
+              {/* Here when the film div is clicked, a function runs and carries the film's number (item.id) as an argument */}
               <div className="filmListItem row" onClick={this.setPage.bind(this, item.id)}>
                 <div className="col">
                   <div className="filmListItem-img" id={item.id} style={{backgroundImage: `url(${item.images[0]})`}}>
@@ -360,11 +499,14 @@ class AllFilms extends Component {
       }
     }
 
+    // {/* itemID = the number of the film*/}
+    // {/* This function takes the film's number and returns it to the component where it is being rendered */}
     setPage(itemID){
       this.setState({
         currentFilm: itemID
       });
-      console.log(itemID);
+      {/* This component has a property called "setFilmNumber" which runs a function. Here we are invoking the function with the itemID as an argument to make it dynamic*/}
+      {/* see line 32 & 37 */}
       this.props.setFilmNumber(itemID);
     }
 }
