@@ -25,9 +25,6 @@
 }
 body{
   font-family: "Open Sans";
-  /* overflow-x: hidden; */
-  /* background-color: red; */
-
 }
 
 p{
@@ -92,10 +89,6 @@ p{
 }
 
 
-/* #container{
-  height: 100vh;
-} */
-
 .map{
   background-color: #ced6e0;
   height: 88vh!important;
@@ -151,6 +144,10 @@ p{
 .more-info{
   width: 80%;
   margin: 2em auto;
+}
+
+.more-info p{
+  font-size: 0.8em;
 }
 
 .hidden{
@@ -214,7 +211,6 @@ p{
   font-size: 1.5em
 }
 .screening-timetable{
-  /* padding: 1em 4em; */
   width: 100%;
 }
 .film-screeningInfo{
@@ -263,13 +259,6 @@ p{
 .cinema{
   width: 100%;
 }
-
-/* #cinemaMap{
-  height: 500px;
-  background-color: #ced6e0;
-  width: 50%;
-  padding: 0px;
-} */
 
 #cinemaInfo{
   padding: 1em;

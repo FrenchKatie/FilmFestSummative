@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.css';
+import './css/index.css';
 import GoogleApiWrapper from './map';
 
 class App extends Component {
@@ -132,7 +132,6 @@ class AllCinemas extends Component {
       this.setState({
         currentCinema: cinemaID
       });
-      console.log('setting the cinema: ' + cinemaID); //works
       this.props.sendCinemaNumber(cinemaID);
     }
 
@@ -179,7 +178,6 @@ class SingleCinema extends Component {
     var cinemaInfo = this.state.cinemaInfo;
     var openingHours = this.state.openingHours;
 
-      console.log(openingHours.Monday);
       return (
         <div id="cinema">
           <div className="cinema">
@@ -320,8 +318,6 @@ class SingleFilm extends Component {
       }
     }
 
-    // SCREENINGS WORKING
-    console.log(this.state.screenings);
 
     if (error){
       return <div>Error: {error.message}</div>;
@@ -502,7 +498,6 @@ class SingleFilm extends Component {
   }
 
   toggleShowInfo(){
-    console.log(this.state.moreInfo);
     if (this.state.moreInfo === 'hidden'){
       this.setState({
         moreInfo: 'visible'

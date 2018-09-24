@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import './index.css';
+import './css/index.css';
 export class MapContainer extends Component {
 
   constructor(props){
@@ -33,7 +33,6 @@ export class MapContainer extends Component {
 
      onInfoWindowClick = () => {
        if (this.state.showingInfoWindow){
-         console.log('clicked!');
        }
      };
 
@@ -47,7 +46,6 @@ export class MapContainer extends Component {
    };
   //this function passes through thed clicked cinema id through to the getCinemaNumber function
   seeCinema = (cinemaID) => {
-    console.log(cinemaID);
     this.props.getCinemaNumber(cinemaID);
   }
 
