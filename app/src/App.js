@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import './index.css';
 import GoogleApiWrapper from './map';
 
-// import { render } from 'react-dom';
-// import Map from './newMap'
-
-
-
 class App extends Component {
 
   constructor(props){
@@ -17,31 +12,36 @@ class App extends Component {
     }
 
     this.changePage = this.changePage.bind(this);
-    // this.setFilmNumber = this.setFilmNumber.bind(this);
     this.handleSetFilmNumber = this.handleSetFilmNumber.bind(this);
+    this.handleSetCinemaNumber = this.handleSetCinemaNumber.bind(this);
 
   }
 
   render() {
     var currentPage = this.state.currentPage;
     var currentFilm = this.state.currentFilm;
+    var currentCinema = this.state.currentCinema;
     let page;
 
     if(this.state.currentFilm === null){
       if(currentPage === 'allCinemas'){
-            page = <AllCinemas/>
+          page = <AllCinemas
+            setCinemaNumber={this.handleSetCinemaNumber}
+          />
       }else if(currentPage === 'allFilms'){
           page = <AllFilms
             setFilmNumber={this.handleSetFilmNumber}
           />
       }
+    } else if (currentPage === 'singleCinema') {
+          page = <SingleCinema
+            cinemaNumber={currentCinema}
+          />
     } else {
-      page = <SingleFilm
-        filmNumber={currentFilm}
-      />
+          page = <SingleFilm
+            filmNumber={currentFilm}
+          />
     }
-
-
 
       return (
         <div className="App">
@@ -72,6 +72,12 @@ class App extends Component {
     });
   }
 
+  handleSetCinemaNumber(cinemaID){
+    this.setState({
+      currentCinema: cinemaID
+    });
+  }
+
   // goToSingle(){
   //   this.setState({
   //     currentPage: 'singleFilm'
@@ -84,10 +90,11 @@ class AllCinemas extends Component {
     constructor(props){
       super(props);
       this.state = {
-        currentPage: 'allFilms',
+        currentPage: 'allCinemas',
         error: null,
         isLoaded: false,
-        items: []
+        items: [],
+        currentCinema: null
       }
 
     }
@@ -116,15 +123,36 @@ class AllCinemas extends Component {
 
     render() {
 
-      console.log("working");
+      const { error, items } = this.state;
+      var currentPage = this.state.currentPage;
+      if (error) {
+        return <div>Error: {error.message}</div>;
+      } else if (currentPage === "allCinemas") {
+        return (
+          <div>
+            <GoogleApiWrapper />
+          </div>
+        )
+      }
 
-      return (
-        <GoogleApiWrapper />
-      );
 
     }
 
 
+}
+
+
+class SingleCinema extends Component {
+
+
+  render(){
+    return (
+      <div id="cinema">
+      <h1>The current cinema ID is - {this.props.cinemaNumber}</h1>
+
+      </div>
+    )
+  }
 }
 
 
@@ -214,7 +242,7 @@ class AllFilms extends Component {
         currentFilm: itemID
       });
       console.log(itemID);
-      this.props.setFilmNumber(itemID);
+      this.props.set(itemID);
     }
 }
 

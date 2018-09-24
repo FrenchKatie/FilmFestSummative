@@ -11,7 +11,7 @@ export class MapContainer extends Component {
      selectedPlace: {},
      showingInfoWindow: false
    };
-   this.showAlert = this.showAlert.bind(this);
+   // this.seeCinema = this.seeCinema.bind(this);
    this.onInfoWindowOpen = this.onInfoWindowOpen.bind(this);
   }
 
@@ -39,12 +39,32 @@ export class MapContainer extends Component {
        });
    };
 
-   showAlert = () => {
-     alert("Im an alert");
+   seeCinema = () => {
+     // alert("Im an alert");
+
+     var selectedCinema = this.state.selectedPlace.id;
+     console.log(this.state.selectedPlace.id);
+
+
+     if(selectedCinema === 0){
+       //take me to lighthouse cinema
+       console.log("take me to lighthouse cinema");
+     } else if (selectedCinema === 1) {
+       //take me to penthouse cinema
+       console.log("take me to penthouse cinema");
+     }else if (selectedCinema === 2) {
+       //take me to reading cinema
+       console.log("take me to reading cinema");
+     } else if (selectedCinema === 3) {
+       //take me to embassy cinema
+       console.log("take me to embassy cinema");
+     }
+
    }
 
+
    onInfoWindowOpen(props, e) {
-       const button = (<button onClick={this.showAlert}>mapbutton</button>
+       const button = (<button onClick={this.seeCinema} id={this.state.selectedPlace.id}>View more information</button>
        );
 
        ReactDOM.render(React.Children.only(button), document.getElementById("iwc"));
@@ -52,7 +72,6 @@ export class MapContainer extends Component {
 
 
   render() {
-    var clickedMarker = document.getElementsByClassName('markerClick');
 
     if (!this.props.loaded) return <div>Loading...</div>;
 
@@ -110,7 +129,7 @@ export class MapContainer extends Component {
 
 
 
-         <div className="pink">
+         <div>
            <h5>{this.state.selectedPlace.name}</h5>
            <h5>{this.state.selectedPlace.id}</h5>
            <div id="iwc" />
