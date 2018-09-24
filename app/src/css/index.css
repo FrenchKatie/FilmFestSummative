@@ -94,6 +94,21 @@ p{
   height: 88vh!important;
   width: 100%;
 }
+.infoWindow-wrap{
+  padding-top: 2em;
+  padding-bottom: 2em;
+  padding-left: 2em;
+}
+.infoWindow-header{
+  font-family: "Oswald";
+}
+.infoWindow-btn{
+  background-color: #0797B4;
+  color: white;
+  padding: 1em 2em;
+  border: none;
+  font-family: "Open Sans";
+}
 
 .row{
   margin-right: 0;
@@ -109,7 +124,7 @@ p{
   background-color: #0797B4;
   color: white;
   font-size: 0.8em;
-  padding: 2em 1em 1em 1em;
+  padding: 2em;
 }
 
 .film-title{
@@ -261,17 +276,28 @@ p{
 }
 
 #cinemaInfo{
-  padding: 1em;
-  width: 50%;
+  padding: 0px !important;
+}
+.cinemaInfo-title{
+  font-family: "Oswald";
+  font-size: 1.8em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: #0797B4;
+  color: white;
 }
 .cinemaInfo-header{
   font-family: "Oswald";
-  font-size: 1.2em;
+  font-size: 1.5em;
   padding-top: 1em;
-}
+  margin: auto;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
 
+}
 .cinemaInfo-text{
-  font-size: 0.8em;
+  font-size: 1em;
+
 }
 .cinemaInfo-days{
   padding-right: 0em;
@@ -279,6 +305,12 @@ p{
 .cinemaInfo-times{
   padding-left: 0em;
   padding-right: 1em;
+}
+
+.cinemaInfo-wrap{
+  /* background-color: pink; */
+  width: 80%;
+  margin: auto;
 }
 .film-timeTitleDirector{
   padding: 0px;
