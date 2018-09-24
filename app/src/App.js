@@ -184,47 +184,50 @@ class SingleCinema extends Component {
         <div id="cinema">
           <div className="cinema">
             <div className="row">
-              <div id="cinemaMap" className="col"></div>
               <div id="cinemaInfo" className="col">
-                <div id="cinema-address">
-                  <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Address</h6>
-                  <p id="cinema-address-street" className="cinemaInfo-text">{cinemaInfo.street}</p>
-                  <p id="cinema-address-suburb" className="cinemaInfo-text">{cinemaInfo.suburb}</p>
-                  <p id="cinema-address-city" className="cinemaInfo-text">{cinemaInfo.city}</p>
-                </div>
-                <div id="cinema-phone">
-                  <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Phone</h6>
-                  <p className="cinemaInfo-text">{cinemaInfo.phone}</p>
-                </div>
-                <div id="cinema-hours" className="">
-                  <h6 className="font-weight-bold cinemaInfo-header text-uppercase">Opening Hours</h6>
-                  <div id="cinema-hours-monday" className="row">
-                    <p className="cinemaInfo-text cinemaInfo-days col">Monday</p>
-                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Monday}</p>
+                <h2 className="cinemaInfo-title text-center text-uppercase">{cinemaInfo.title}</h2>
+                <div className="cinemaInfo-wrap">
+                  <div id="cinema-address" className="">
+                    <h6 className="font-weight-bold cinemaInfo-header text-uppercase  ">Address</h6>
+                    <p id="cinema-address-street" className="cinemaInfo-text">{cinemaInfo.street}</p>
+                    <p id="cinema-address-suburb" className="cinemaInfo-text">{cinemaInfo.suburb}</p>
+                    <p id="cinema-address-city" className="cinemaInfo-text">{cinemaInfo.city}</p>
                   </div>
-                  <div id="cinema-hours-tuesday" className="row">
-                    <p className="cinemaInfo-text cinemaInfo-days col">Tuesday</p>
-                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Tuesday}</p>
+                  <div id="cinema-phone" className=" cinemaInfoPadd">
+                    <h6 className="font-weight-bold cinemaInfo-header text-uppercase  ">Phone</h6>
+                    <p className="cinemaInfo-text">{cinemaInfo.phone}</p>
                   </div>
-                  <div id="cinema-hours-wednesday" className="row">
-                    <p className="cinemaInfo-text cinemaInfo-days col">Wednesday</p>
-                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Wednesday}</p>
-                  </div>
-                  <div id="cinema-hours-thursday" className="row">
-                    <p className="cinemaInfo-text cinemaInfo-days col">Thursday</p>
-                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Thursday}</p>
-                  </div>
-                  <div id="cinema-hours-friday" className="row">
-                    <p className="cinemaInfo-text cinemaInfo-days col">Friday</p>
-                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Friday}</p>
-                  </div>
-                  <div id="cinema-hours-saturday" className="row">
-                    <p className="cinemaInfo-text cinemaInfo-days col">Saturday</p>
-                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Saturday}</p>
-                  </div>
-                  <div id="cinema-hours-sunday" className="row">
-                    <p className="cinemaInfo-text cinemaInfo-days col">Sunday</p>
-                    <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Sunday}</p>
+
+                  <div id="cinema-hours" className=" cinemaInfoPadd">
+                    <h6 className="font-weight-bold cinemaInfo-header text-uppercase ">Opening Hours</h6>
+                    <div id="cinema-hours-monday" className="row">
+                      <p className="cinemaInfo-text cinemaInfo-days col">Monday</p>
+                      <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Monday}</p>
+                    </div>
+                    <div id="cinema-hours-tuesday" className="row">
+                      <p className="cinemaInfo-text cinemaInfo-days col">Tuesday</p>
+                      <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Tuesday}</p>
+                    </div>
+                    <div id="cinema-hours-wednesday" className="row">
+                      <p className="cinemaInfo-text cinemaInfo-days col">Wednesday</p>
+                      <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Wednesday}</p>
+                    </div>
+                    <div id="cinema-hours-thursday" className="row">
+                      <p className="cinemaInfo-text cinemaInfo-days col">Thursday</p>
+                      <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Thursday}</p>
+                    </div>
+                    <div id="cinema-hours-friday" className="row">
+                      <p className="cinemaInfo-text cinemaInfo-days col">Friday</p>
+                      <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Friday}</p>
+                    </div>
+                    <div id="cinema-hours-saturday" className="row">
+                      <p className="cinemaInfo-text cinemaInfo-days col">Saturday</p>
+                      <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Saturday}</p>
+                    </div>
+                    <div id="cinema-hours-sunday" className="row">
+                      <p className="cinemaInfo-text cinemaInfo-days col">Sunday</p>
+                      <p className="cinemaInfo-text cinemaInfo-times col">{openingHours.Sunday}</p>
+                    </div>
                   </div>
                 </div>
               </div>

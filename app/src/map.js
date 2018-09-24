@@ -53,7 +53,7 @@ export class MapContainer extends Component {
 
 
   onInfoWindowOpen(props, e) {
-    const button = (<button onClick={this.seeCinema.bind(this, this.state.selectedPlace.id)} id={this.state.selectedPlace.id}>View more information</button>);
+    const button = (<button className="infoWindow-btn text-uppercase" onClick={this.seeCinema.bind(this, this.state.selectedPlace.id)} id={this.state.selectedPlace.id}>View more information</button>);
     ReactDOM.render(React.Children.only(button), document.getElementById("iwc"));
   }
 
@@ -66,16 +66,17 @@ export class MapContainer extends Component {
 
       <Map google={this.props.google}
       initialCenter={{
-        lat: -41.286461,
+        // lat: -41.286461,
+        lat: -41.296461,
         lng: 174.776230
       }}
       onClick={this.onMapClicked}
       className={'map'}
-      zoom={12}>
+      zoom={11}>
 
       <Marker
-        title={'Lighthouse Cinema Petone'}
-        name={'Lighthouse Cinema Petone'}
+        title={'Light House Cinema Petone'}
+        name={'Light House Cinema Petone'}
         id={0}
         onClick={this.onMarkerClick}
         position={{lat: -41.226067, lng:  174.879562}}
@@ -98,8 +99,8 @@ export class MapContainer extends Component {
       />
 
       <Marker
-        title={'Embassy Deluxe'}
-        name={'Embassy Deluxe'}
+        title={'Embassy Cinema'}
+        name={'Embassy Cinema'}
         id={3}
         onClick={this.onMarkerClick}
         position={{lat: -41.294320, lng: 174.784058}}
@@ -116,9 +117,8 @@ export class MapContainer extends Component {
 
 
 
-         <div>
-           <h5>{this.state.selectedPlace.name}</h5>
-           <h5>{this.state.selectedPlace.id}</h5>
+         <div className="infoWindow-wrap">
+           <h5 className="infoWindow-header text-uppercase text-center">{this.state.selectedPlace.name}</h5>
            <div id="iwc" />
          </div>
        </InfoWindow>

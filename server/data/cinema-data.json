@@ -1,6 +1,7 @@
 [
       {
         "id":0,
+        "title": "Light House Cinema",
         "phone": "04 385 3337",
         "street": "29 Wigan Street",
         "suburb": "Te Aro",
@@ -103,6 +104,7 @@
     },
     {
         "id":1,
+        "title": "Penthouse Cinema",
         "phone": "04 384 3157",
         "street": "205 Ohiro Road",
         "suburb": "Brooklyn",
@@ -205,6 +207,7 @@
     },
     {
         "id": 2,
+        "title": "Reading Cinema",
         "phone": "04 801 4600",
         "street": "Level 1, 100 Courtenay Place",
         "suburb": "Te Aro",
@@ -307,6 +310,7 @@
     },
       {
         "id": 3,
+        "title": "Embassy Cinema",
         "phone": "04 384 7657",
         "street": "10 Kent Terrace",
         "suburb": "Te Aro",
