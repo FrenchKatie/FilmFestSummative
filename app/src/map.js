@@ -11,7 +11,7 @@ export class MapContainer extends Component {
      selectedPlace: {},
      showingInfoWindow: false
    };
-   this.showAlert = this.showAlert.bind(this);
+   // this.seeCinema = this.seeCinema.bind(this);
    this.onInfoWindowOpen = this.onInfoWindowOpen.bind(this);
   }
 
@@ -45,21 +45,20 @@ export class MapContainer extends Component {
          showingInfoWindow: false
        });
    };
+  //this function passes through thed clicked cinema id through to the getCinemaNumber function
+  seeCinema = (cinemaID) => {
+    console.log(cinemaID);
+    this.props.getCinemaNumber(cinemaID);
+  }
 
-   showAlert = () => {
-     alert("Im an alert");
-   }
 
-   onInfoWindowOpen(props, e) {
-       const button = (<button onClick={this.showAlert}>mapbutton</button>
-       );
-
-       ReactDOM.render(React.Children.only(button), document.getElementById("iwc"));
-     }
+  onInfoWindowOpen(props, e) {
+    const button = (<button onClick={this.seeCinema.bind(this, this.state.selectedPlace.id)} id={this.state.selectedPlace.id}>View more information</button>);
+    ReactDOM.render(React.Children.only(button), document.getElementById("iwc"));
+  }
 
 
   render() {
-    var clickedMarker = document.getElementsByClassName('markerClick');
 
     if (!this.props.loaded) return <div>Loading...</div>;
 
@@ -117,7 +116,7 @@ export class MapContainer extends Component {
 
 
 
-         <div className="pink">
+         <div>
            <h5>{this.state.selectedPlace.name}</h5>
            <h5>{this.state.selectedPlace.id}</h5>
            <div id="iwc" />

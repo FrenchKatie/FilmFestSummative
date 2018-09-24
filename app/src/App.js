@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import './index.css';
 import GoogleApiWrapper from './map';
 
-// import { render } from 'react-dom';
-// import Map from './newMap'
-
-
-
 class App extends Component {
 
   constructor(props){
@@ -20,33 +15,42 @@ class App extends Component {
 
     this.changePage = this.changePage.bind(this);
     this.handleSetFilmNumber = this.handleSetFilmNumber.bind(this);
+    this.handleSetCinemaNumber = this.handleSetCinemaNumber.bind(this);
+
   }
 
   render() {
     var currentPage = this.state.currentPage;
     var currentFilm = this.state.currentFilm;
+    var currentCinema = this.state.currentCinema; //cinema that user has clicked on
+
     let page;
 
     {/* When currentFilm is set a valid value, it will change to the single film page */}
-    if(this.state.currentFilm === null){
-      if(currentPage === 'allCinemas'){
-            page = <AllCinemas/>
+    if(this.state.currentFilm === null){ // if there is no current film
+        if(currentPage === 'allCinemas'){
+            page = <AllCinemas
+              sendCinemaNumber={this.handleSetCinemaNumber} //sends the getCinemaNumber (???) to the handle function to set it
+            />
             this.state.cinemaTab = 'active';
             this.state.filmTab = 'inactive';
-      }else if(currentPage === 'allFilms'){
-          page = <AllFilms
-            setFilmNumber={this.handleSetFilmNumber}
+        }else if(currentPage === 'allFilms'){
+            page = <AllFilms
+              setFilmNumber={this.handleSetFilmNumber}
+            />
+            this.state.cinemaTab = 'inactive';
+            this.state.filmTab = 'active';
+        }else if (currentPage === 'singleCinema') {
+              page = <SingleCinema
+                cinemaNumber={currentCinema}
+              />
+        }
+
+    }  else {
+          page = <SingleFilm
+            filmNumber={currentFilm}
           />
-          this.state.cinemaTab = 'inactive';
-          this.state.filmTab = 'active';
-      } {/* handleSetFilmNumber() is the function being invoked using the argument we set on line 339 */}
-    } else {
-      page = <SingleFilm
-        filmNumber={currentFilm}
-      />
     }
-
-
 
       return (
         <div className="App">
@@ -80,11 +84,14 @@ class App extends Component {
     });
   }
 
-  // goToSingle(){
-  //   this.setState({
-  //     currentPage: 'singleFilm'
-  //   })
-  // }
+  handleSetCinemaNumber(cinemaID){
+    this.setState({
+      currentCinema: cinemaID, //current cinema is now user selected one
+      currentPage: 'singleCinema' //run the if statement for if currentPage = singleCinema
+    });
+    console.log('we are FINALLY on: ' + cinemaID); //works
+  }
+
 }
 
 class AllCinemas extends Component {
@@ -92,11 +99,14 @@ class AllCinemas extends Component {
     constructor(props){
       super(props);
       this.state = {
-        currentPage: 'allFilms',
+        currentPage: 'allCinemas',
         error: null,
         isLoaded: false,
-        items: []
+        items: [],
+        currentCinema: null
       }
+
+      this.setCinemaNumber = this.setCinemaNumber.bind(this);
 
     }
 
@@ -122,15 +132,45 @@ class AllCinemas extends Component {
 
     render() {
 
-      return (
-        <div className="main">
-          <GoogleApiWrapper />
-        </div>
-      );
+      const { error } = this.state;
+      var currentPage = this.state.currentPage;
+      if (error) {
+        return <div>Error: {error.message}</div>;
+      } else if (currentPage === "allCinemas") {
+        return (
+          <div>
+            <GoogleApiWrapper
+             getCinemaNumber={this.setCinemaNumber}
+             />
+          </div>
+        )
+      }
+
 
     }
 
+    setCinemaNumber(cinemaID){ //sets the state of the current cinema to selected cinema ID
+      this.setState({
+        currentCinema: cinemaID
+      });
+      console.log('setting the cinema: ' + cinemaID); //works
+      this.props.sendCinemaNumber(cinemaID);
+    }
 
+
+}
+
+
+class SingleCinema extends Component {
+
+  render(){
+    console.log('You are on single cinema');
+    return (
+      <div id="cinema">
+        <h1>The current cinema ID is - {this.props.cinemaNumber}</h1>
+      </div>
+    )
+  }
 }
 
 
