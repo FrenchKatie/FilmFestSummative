@@ -20,24 +20,25 @@ class App extends Component {
   render() {
     var currentPage = this.state.currentPage;
     var currentFilm = this.state.currentFilm;
-    var currentCinema = this.state.currentCinema;
-    let page;
+    var currentCinema = this.state.currentCinema; //cinema that user has clicked on
+    let page; //what page you are on
 
-    if(this.state.currentFilm === null){
-      if(currentPage === 'allCinemas'){
-          page = <AllCinemas
-            setCinemaNumber={this.handleSetCinemaNumber}
-          />
-      }else if(currentPage === 'allFilms'){
-          page = <AllFilms
-            setFilmNumber={this.handleSetFilmNumber}
-          />
-      }
-    } else if (currentPage === 'singleCinema') {
-          page = <SingleCinema
-            cinemaNumber={currentCinema}
-          />
-    } else {
+    if(this.state.currentFilm === null){ // if there is no current film
+        if(currentPage === 'allCinemas'){
+            page = <AllCinemas
+              sendCinemaNumber={this.handleSetCinemaNumber} //sends the getCinemaNumber (???) to the handle function to set it
+            />
+        }else if(currentPage === 'allFilms'){
+            page = <AllFilms
+              setFilmNumber={this.handleSetFilmNumber}
+            />
+        }else if (currentPage === 'singleCinema') {
+              page = <SingleCinema
+                cinemaNumber={currentCinema}
+              />
+        }
+
+    }  else {
           page = <SingleFilm
             filmNumber={currentFilm}
           />
@@ -74,15 +75,12 @@ class App extends Component {
 
   handleSetCinemaNumber(cinemaID){
     this.setState({
-      currentCinema: cinemaID
+      currentCinema: cinemaID, //current cinema is now user selected one
+      currentPage: 'singleCinema' //run the if statement for if currentPage = singleCinema
     });
+    console.log('we are FINALLY on: ' + cinemaID); //works
   }
 
-  // goToSingle(){
-  //   this.setState({
-  //     currentPage: 'singleFilm'
-  //   })
-  // }
 }
 
 class AllCinemas extends Component {
@@ -96,6 +94,8 @@ class AllCinemas extends Component {
         items: [],
         currentCinema: null
       }
+
+      this.setCinemaNumber = this.setCinemaNumber.bind(this);
 
     }
 
@@ -123,19 +123,29 @@ class AllCinemas extends Component {
 
     render() {
 
-      const { error, items } = this.state;
+      const { error } = this.state;
       var currentPage = this.state.currentPage;
       if (error) {
         return <div>Error: {error.message}</div>;
       } else if (currentPage === "allCinemas") {
         return (
           <div>
-            <GoogleApiWrapper />
+            <GoogleApiWrapper
+             getCinemaNumber={this.setCinemaNumber}
+             />
           </div>
         )
       }
 
 
+    }
+
+    setCinemaNumber(cinemaID){ //sets the state of the current cinema to selected cinema ID
+      this.setState({
+        currentCinema: cinemaID
+      });
+      console.log('setting the cinema: ' + cinemaID); //works
+      this.props.sendCinemaNumber(cinemaID);
     }
 
 
@@ -144,12 +154,11 @@ class AllCinemas extends Component {
 
 class SingleCinema extends Component {
 
-
   render(){
+    console.log('You are on single cinema');
     return (
       <div id="cinema">
-      <h1>The current cinema ID is - {this.props.cinemaNumber}</h1>
-
+        <h1>The current cinema ID is - {this.props.cinemaNumber}</h1>
       </div>
     )
   }
@@ -242,7 +251,7 @@ class AllFilms extends Component {
         currentFilm: itemID
       });
       console.log(itemID);
-      this.props.set(itemID);
+      this.props.setFilmNumber(itemID);
     }
 }
 

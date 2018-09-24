@@ -31,44 +31,24 @@ export class MapContainer extends Component {
        showingInfoWindow: false
      });
 
-   onMapClicked = () => {
+  onMapClicked = () => {
      if (this.state.showingInfoWindow)
        this.setState({
          activeMarker: null,
          showingInfoWindow: false
        });
    };
-
-   seeCinema = () => {
-     // alert("Im an alert");
-
-     var selectedCinema = this.state.selectedPlace.id;
-     console.log(this.state.selectedPlace.id);
-
-
-     if(selectedCinema === 0){
-       //take me to lighthouse cinema
-       console.log("take me to lighthouse cinema");
-     } else if (selectedCinema === 1) {
-       //take me to penthouse cinema
-       console.log("take me to penthouse cinema");
-     }else if (selectedCinema === 2) {
-       //take me to reading cinema
-       console.log("take me to reading cinema");
-     } else if (selectedCinema === 3) {
-       //take me to embassy cinema
-       console.log("take me to embassy cinema");
-     }
-
-   }
+  //this function passes through thed clicked cinema id through to the getCinemaNumber function
+  seeCinema = (cinemaID) => {
+    console.log(cinemaID);
+    this.props.getCinemaNumber(cinemaID);
+  }
 
 
-   onInfoWindowOpen(props, e) {
-       const button = (<button onClick={this.seeCinema} id={this.state.selectedPlace.id}>View more information</button>
-       );
-
-       ReactDOM.render(React.Children.only(button), document.getElementById("iwc"));
-     }
+  onInfoWindowOpen(props, e) {
+    const button = (<button onClick={this.seeCinema.bind(this, this.state.selectedPlace.id)} id={this.state.selectedPlace.id}>View more information</button>);
+    ReactDOM.render(React.Children.only(button), document.getElementById("iwc"));
+  }
 
 
   render() {
